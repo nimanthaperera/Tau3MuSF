@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+
+"""
+Setup argument parser
+"""
+parser = argparse.ArgumentParser(description="This program can be used to skim Tag-and-Probe ROOT files by applying cuts on an input tree and copy the result to an output ROOT file. The main purpose of the script is reducing the file size to speed up the processing during analysis.")
+parser.add_argument("filenameInput", help="Path to the input Tag-And-Probe ROOT file")
+parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROOT file")
+parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
+parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
+parser.add_argument("-c", "--cut", default="", help="Cut string which is used on input tree (applied as CopyTree() argument)")
+parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity for input/output tree properties")
+args = parser.parse_args()
+
+"""
+Generate subtree by applying cut within the CopyTree ROOT function
+"""
+
+from ROOT import * # import this here, otherwise it overwrites the argparse stuff
+
+# Get input tree
+fileInput = TFile(args.filenameInput)
+dirInput = fileInput.GetDirectory(args.directory)
+treeInput = dirInput.Get(args.tree)
+
+# Make output directory and copy input tree
+fileOutput = TFile(args.filenameOutput, "recreate")
+dirOutput = fileOutput.mkdir(args.directory)
+dirOutput.cd()
+treeOutput = treeInput.CopyTree(args.cut)
+
+# Print some info if verbosity is increased
+if args.verbosity == 1:
+    print('Number of entries in tree:')
+    print('--------------------------')
+    print('Input:  {}'.format(treeInput.GetEntries()))
+    print('Output: {}'.format(treeOutput.GetEntries()))
+
+# Write output file
+treeOutput.Write()

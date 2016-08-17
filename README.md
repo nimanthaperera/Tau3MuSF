@@ -10,9 +10,15 @@ The script `compareTrees` can be used to check that the output ROOT files of dif
 
 ```bash
 # Take the example tree, remove the eta branch and set all values of the pt branch to zero
-./modifyTree exampleTree.root exampleTreeModified.root --remove eta --branch pt
+./modifyTree exampleTree.root modifiedTree.root --remove eta --branch pt
 
 # Now, examine the differences using the 'compareTrees' tool
-./compareTrees exampleTreeModified.root exampleTree.root
+./compareTrees modifiedTree.root exampleTree.root
 ```
+## Skim TnP tree
 
+With the program `subTree`, you can reduce TnP ROOT files by applying cuts on a specified input tree and copy the result to an output ROOT file. This is mainly done to reduce the file size and therefore to reduce the needed processing time for TnP studies.
+
+```bash
+./skimTree exampleTree.root skimmedTree.root --cut "tag_IsoMu20==1 && tag_pt>30"
+```
