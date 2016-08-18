@@ -12,7 +12,9 @@ parser.add_argument("filenameInput", help="Path to the input Tag-And-Probe ROOT 
 parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROOT file")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
-parser.add_argument("-c", "--cut", default="", help="Cut string which is used on input tree (applied as CopyTree() argument)")
+parser.add_argument("-c", "--cut", default="", help="Cut string which is used on input tree (applied as CopyTree() argument), e.g., \"pt>30 && abseta<2.4\"")
+parser.add_argument("-r", "--remove", default="", help="List of branches, which are removed from tree, e.g., \"pt eta abseta\" or \"tag_*\"")
+parser.add_argument("-k", "--keep", default="", help="List of branches, which are explicitly kept in tree, e.g., \"pt eta abseta\". This option deactivates the 'remove' argument for the specified branches")
 parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity for input/output tree properties")
 args = parser.parse_args()
 
@@ -36,6 +38,17 @@ if not treeInput:
     print('[ERROR] Tree not found in input file: {}'.format(args.tree))
     sys.exit()
 
+# Deactivate and reactivate branches from 'remove' and 'keep' arguments
+branchesRemove = args.remove.split(' ')
+if branchesRemove != ['']:
+    for branch in branchesRemove:
+        treeInput.SetBranchStatus(branch, 0)
+
+branchesKeep = args.keep.split(' ')
+if branchesKeep != ['']:
+    for branch in branchesKeep:
+        treeInput.SetBranchStatus(branch, 1)
+
 # Make output directory and copy input tree
 fileOutput = TFile(args.filenameOutput, "recreate")
 dirOutput = fileOutput.mkdir(args.directory)
@@ -48,6 +61,12 @@ if args.verbosity == 1:
     print('--------------------------')
     print('Input:  {}'.format(treeInput.GetEntries()))
     print('Output: {}'.format(treeOutput.GetEntries()))
+    print('')
+
+    print('Number of branches in tree:')
+    print('---------------------------')
+    print('Input:  {}'.format(len(treeInput.GetListOfBranches())))
+    print('Output: {}'.format(len(treeOutput.GetListOfBranches())))
 
 # Write output file
 treeOutput.Write()
