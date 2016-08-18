@@ -7,7 +7,7 @@ import sys
 Setup argument parser
 """
 
-parser = argparse.ArgumentParser(description="")
+parser = argparse.ArgumentParser(description="The program takes the input ROOT file and applies the specified cut. Then, it prints run, luminosity and event in the format 'run:lumi:event'. This is mainly used to feed the output to CMS analysis tools.")
 parser.add_argument("filenameInput", help="Path to the input Tag-And-Probe ROOT file")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
