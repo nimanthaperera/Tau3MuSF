@@ -16,6 +16,7 @@ parser.add_argument("-d", "--directory", default="tpTree", help="Directory in th
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables which shall be compared")
 parser.add_argument("-v", "--verbosity", action="count", default=0, help="Increase output verbosity by printing names of branches which do not differ")
 parser.add_argument("-c", "--cut", default=0, help="Branches with a difference below this cut will not be treated as different")
+parser.add_argument("-s", "--singleValue", default=0, action="count", help="Show branches in target and reference which are filled with a single value")
 args = parser.parse_args()
 
 """
@@ -93,31 +94,32 @@ for branchTarget in branchesTarget:
         branchesNotInReference.append({'name' : branchTarget.GetName()})
 
 # Check for single values in branches
-for branch in branchesTarget:
-    leaf = branch.GetLeaf(branch.GetName())
-    refVal = None
-    hasMultVals = False
-    for iEvent in range(numEvents):
-        branch.GetEntry(iEvent)
-        if iEvent==0:
-            refVal = leaf.GetValue()
-        else:
-            if refVal != leaf.GetValue(): hasMultVals = True
-    if not hasMultVals:
-        branchesTargetSingleVal.append({'name' : branch.GetName(), 'value' : refVal})
+if args.singleValue:
+    for branch in branchesTarget:
+        leaf = branch.GetLeaf(branch.GetName())
+        refVal = None
+        hasMultVals = False
+        for iEvent in range(numEvents):
+            branch.GetEntry(iEvent)
+            if iEvent==0:
+                refVal = leaf.GetValue()
+            else:
+                if refVal != leaf.GetValue(): hasMultVals = True
+        if not hasMultVals:
+            branchesTargetSingleVal.append({'name' : branch.GetName(), 'value' : refVal})
 
-for branch in branchesReference:
-    leaf = branch.GetLeaf(branch.GetName())
-    refVal = None
-    hasMultVals = False
-    for iEvent in range(numEvents):
-        branch.GetEntry(iEvent)
-        if iEvent==0:
-            refVal = leaf.GetValue()
-        else:
-            if refVal != leaf.GetValue(): hasMultVals = True
-    if not hasMultVals:
-        branchesRefSingleVal.append({'name' : branch.GetName(), 'value' : refVal})
+    for branch in branchesReference:
+        leaf = branch.GetLeaf(branch.GetName())
+        refVal = None
+        hasMultVals = False
+        for iEvent in range(numEvents):
+            branch.GetEntry(iEvent)
+            if iEvent==0:
+                refVal = leaf.GetValue()
+            else:
+                if refVal != leaf.GetValue(): hasMultVals = True
+        if not hasMultVals:
+            branchesRefSingleVal.append({'name' : branch.GetName(), 'value' : refVal})
 
 """
 Print summary
@@ -144,7 +146,7 @@ if args.verbosity>1:
     for branch in branchesSame:
         print(branch['name'])
 else:
-    print('Increase verbosity two times (-vv) to show this')
+    print('Increase verbosity (-v) to show this')
 print('')
 print('Entries: {}'.format(len(branchesSame)))
 print('')
@@ -179,23 +181,27 @@ print('')
 print('Branches in target with a single value in all entries:')
 print('------------------------------------------------------')
 
-if args.verbosity>0:
+if args.singleValue:
     for branch in branchesTargetSingleVal:
         print('{} : value {}'.format(branch['name'], branch['value']))
+    print('')
+    print('Entries: {}'.format(len(branchesTargetSingleVal)))
+    print('')
 else:
-    print('Increase verbosity one time (-v) to show this')
-print('')
-print('Entries: {}'.format(len(branchesTargetSingleVal)))
-print('')
+    print('')
+    print('Set flag (-s) to enable this')
+    print('')
 
 print('Branches in reference with a single value in all entries:')
 print('---------------------------------------------------------')
 
-if args.verbosity>0:
-    for branch in branchesRefSingleVal:
+if args.singleValue:
+    for branch in branchesTargetSingleVal:
         print('{} : value {}'.format(branch['name'], branch['value']))
+    print('')
+    print('Entries: {}'.format(len(branchesRefSingleVal)))
+    print('')
 else:
-    print('Increase verbosity one time (-v) to show this')
-print('')
-print('Entries: {}'.format(len(branchesRefSingleVal)))
-print('')
+    print('')
+    print('Set flag (-s) to enable this')
+    print('')
