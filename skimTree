@@ -23,8 +23,17 @@ from ROOT import * # import this here, otherwise it overwrites the argparse stuf
 
 # Get input tree
 fileInput = TFile(args.filenameInput)
+if not fileInput:
+    print('[ERROR] Input file not found: {}'.format(args.filenameInput))
+    sys.exit()
 dirInput = fileInput.GetDirectory(args.directory)
+if not dirInput:
+    print('[ERROR] Directory not found in input file: {}'.format(args.directory))
+    sys.exit()
 treeInput = dirInput.Get(args.tree)
+if not treeInput:
+    print('[ERROR] Tree not found in input file: {}'.format(args.tree))
+    sys.exit()
 
 # Make output directory and copy input tree
 fileOutput = TFile(args.filenameOutput, "recreate")
