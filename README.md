@@ -35,6 +35,36 @@ You can print run, luminosity and event of a TnP tree with a specified cut. This
 ./printTree exampleTree.root --cut "tag_IsoMu20==1 && tag_pt>30" > outputFile
 ```
 
+## Create cut string from JSON file
+
+The script `jsonToCut` generates a valid cut string from a JSON file, which specifies runs and luminosity sections (see `exampleCut.json`). Following example shows how you can feed the cut string into the other scripts without doing copy past in the terminal.
+
+```bash
+# Read the example JSON file to an environment variable
+export CUT=$(./jsonToCut exampleCut.json)
+
+# Have a look at the cut string
+echo $CUT
+
+# Then, feed the cut to any other program, which takes a cut string
+# Note, that you have to put "" around the variable
+./printTree exampleTree.root --cut "$CUT"
+```
+
+As well, you can combine multiple cuts using this approach. Here a combination of cuts created from a JSON file and a cut from a string.
+
+```bash
+# Export cut from JSON file to environment variable
+export CUT0=$(./jsonToCut exampleCut.json)
+
+# Export cut from string
+export CUT1="tag_IsoMu20==1 && tag_pt>30"
+
+# Combine the cuts with a && operation
+# Note, that you have to use () around the variables to get the desired logic!
+./printTree exampleTree.root --cut "($CUT0) && ($CUT1)"
+```
+
 ## Writing outputs to file
 
 Remember, all programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
