@@ -7,17 +7,16 @@ import sys
 Setup argument parser
 """
 
-parser = argparse.ArgumentParser(description="This program can be used to skim Tag-and-Probe ROOT files by applying cuts on an input tree and copy the result to an output ROOT file. The main purpose of the script is reducing the file size to speed up the processing during analysis.")
+parser = argparse.ArgumentParser(description="")
 parser.add_argument("filenameInput", help="Path to the input Tag-And-Probe ROOT file")
-parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROOT file")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
 parser.add_argument("-c", "--cut", default="", help="Cut string which is used on input tree (applied as CopyTree() argument)")
-parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity for input/output tree properties")
+parser.add_argument("-v", "--verbosity", default=0, action="count", help="Increase or decrease output verbosity for input/output tree properties")
 args = parser.parse_args()
 
 """
-Generate subtree by applying cut within the CopyTree ROOT function
+Applying cut within the CopyTree ROOT function
 """
 
 from ROOT import * # import this here, otherwise it overwrites the argparse stuff
@@ -36,18 +35,34 @@ if not treeInput:
     print('[ERROR] Tree not found in input file: {}'.format(args.tree))
     sys.exit()
 
-# Make output directory and copy input tree
-fileOutput = TFile(args.filenameOutput, "recreate")
-dirOutput = fileOutput.mkdir(args.directory)
-dirOutput.cd()
+# Copy input tree and apply cut
 treeOutput = treeInput.CopyTree(args.cut)
 
-# Print some info if verbosity is set to 1
-if args.verbosity == 1:
+# Go through events and print run:lumi:event for each
+branchRun = treeOutput.GetBranch('run')
+if not branchRun:
+    print('[ERROR] Branch \'run\' not found')
+    sys.exit()
+branchLumi = treeOutput.GetBranch('lumi')
+if not branchLumi:
+    print('[ERROR] Branch \'lumi\' not found')
+    sys.exit()
+branchEvent = treeOutput.GetBranch('event')
+if not branchEvent:
+    print('[ERROR] Branch \'event\' not found')
+    sys.exit()
+leafRun = branchRun.GetLeaf('run')
+leafLumi = branchLumi.GetLeaf('lumi')
+leafEvent = branchEvent.GetLeaf('event')
+for iEvent in range(treeOutput.GetEntries()):
+    branchRun.GetEntry(iEvent)
+    branchLumi.GetEntry(iEvent)
+    branchEvent.GetEntry(iEvent)
+    print('{}:{}:{}'.format(leafRun.GetValue(), leafLumi.GetValue(), leafEvent.GetValue()))
+
+# Print some info if verbosity is increased
+if args.verbosity:
     print('Number of entries in tree:')
     print('--------------------------')
-    print('Input:  {}'.format(treeInput.GetEntries()))
-    print('Output: {}'.format(treeOutput.GetEntries()))
-
-# Write output file
-treeOutput.Write()
+    print('Before cut: {}'.format(treeInput.GetEntries()))
+    print('After cut:  {}'.format(treeOutput.GetEntries()))

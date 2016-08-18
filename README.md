@@ -23,9 +23,21 @@ With the program `subTree`, you can reduce TnP ROOT files by applying cuts on a 
 ./skimTree exampleTree.root skimmedTree.root --cut "tag_IsoMu20==1 && tag_pt>30"
 ```
 
+## Print TnP tree
+
+You can print run, luminosity and event of a TnP tree with a specified cut. This is used mainly to feed the output to [this CMS tool](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPickEvents). Most likely, you want to pipe the output to a file.
+
+```bash
+# Print output to the terminal (stdout)
+./printTree exampleTree.root --cut "tag_IsoMu20==1 && tag_pt>30"
+
+# Write output to file
+./printTree exampleTree.root --cut "tag_IsoMu20==1 && tag_pt>30" > outputFile
+```
+
 ## Writing outputs to file
 
-All programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
+Remember, all programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
 
 ```bash
 ./someProgram > outputFile
