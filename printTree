@@ -58,7 +58,7 @@ for iEvent in range(treeOutput.GetEntries()):
     branchRun.GetEntry(iEvent)
     branchLumi.GetEntry(iEvent)
     branchEvent.GetEntry(iEvent)
-    print('{}:{}:{}'.format(leafRun.GetValue(), leafLumi.GetValue(), leafEvent.GetValue()))
+    print('{}:{}:{}'.format(int(leafRun.GetValue()), int(leafLumi.GetValue()), int(leafEvent.GetValue())))
 
 # Print some info if verbosity is increased
 if args.verbosity:
