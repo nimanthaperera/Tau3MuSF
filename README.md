@@ -22,3 +22,11 @@ With the program `subTree`, you can reduce TnP ROOT files by applying cuts on a 
 ```bash
 ./skimTree exampleTree.root skimmedTree.root --cut "tag_IsoMu20==1 && tag_pt>30"
 ```
+
+## Writing outputs to file
+
+All programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
+
+```bash
+./someProgram > outputFile
+```
