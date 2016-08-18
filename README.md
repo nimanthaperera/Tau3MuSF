@@ -24,7 +24,7 @@ With the program `subTree`, you can reduce TnP ROOT files by applying cuts on a 
 ./skimTree exampleTree.root skimmedTree.root --cut "tag_IsoMu20==1 && tag_pt>30"
 
 # Remove some specific branches from a tree
-./skimTree exampleTree.root skimmedTree.root --remove "pt eta abseta"
+./skimTree exampleTree.root skimmedTree.root --remove "tag_* pt eta abseta"
 
 # Remove all branches from the tree except the specified ones
 # Here, first you remove all of the branches and re-add only the desired ones
