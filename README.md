@@ -4,7 +4,9 @@ This repository holds a set of utilities/macros to work with Tag-and-Probe (TnP)
 
 All script are written in python and take a `--help` argument, which describes the functionality of the different scripts. The following sections explain the usage in simple use-cases. All of them should work with a setup CMS software (CMSSW) environment.
 
-## Compare TnP trees
+## Programs
+
+### Compare TnP trees
 
 The script `compareTrees` can be used to check that the output ROOT files of different CMSSW package versions is still the same. Run following example to examine the output of the script.
 
@@ -15,7 +17,7 @@ The script `compareTrees` can be used to check that the output ROOT files of dif
 # Now, examine the differences using the 'compareTrees' tool
 ./compareTrees modifiedTree.root exampleTree.root
 ```
-## Skim TnP tree
+### Skim TnP tree
 
 With the program `skimTree`, you can reduce TnP ROOT files by applying cuts on a specified input tree and copy the result to an output ROOT file. As well, you can remove branches from the tree completely. This is mainly done to reduce the file size and therefore to reduce the needed processing time for TnP studies.
 
@@ -31,7 +33,7 @@ With the program `skimTree`, you can reduce TnP ROOT files by applying cuts on a
 ./skimTree exampleTree.root skimmedTree.root --remove "*" --keep "pt eta"
 ```
 
-## Print TnP tree
+### Print TnP tree
 
 You can print run, luminosity and event of a TnP tree with a specified cut. This is used mainly to feed the output to [this CMS tool](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPickEvents). Most likely, you want to pipe the output to a file.
 
@@ -43,7 +45,7 @@ You can print run, luminosity and event of a TnP tree with a specified cut. This
 ./printTree exampleTree.root --cut "tag_IsoMu20==1 && tag_pt>30" > outputFile
 ```
 
-## Create cut string from JSON file
+### Create cut string from JSON file
 
 The script `jsonToCut` generates a valid cut string from a JSON file, which specifies runs and luminosity sections (see `exampleCut.json`). Following example shows how you can feed the cut string into the other scripts without doing copy past in the terminal.
 
@@ -73,10 +75,21 @@ CUT2="tag_IsoMu20==1 && tag_pt>30"
 ./printTree exampleTree.root --cut "($CUT1) && ($CUT2)"
 ```
 
-## Writing outputs to file
+## Helpful tips and tricks
+
+### Writing outputs to file
 
 Remember, all programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
 
 ```bash
 ./someProgram > outputFile
+```
+
+### Access data directly from EOS
+
+Because the input and output files are handled by `TFile` classes from ROOT, you can access data directly from EOS. Especially, this is useful for copying a skimmed version of a ROOT file from EOS to your local storage device. All you have to do is giving the EOS path of the file with a `root://` prefix to the script. Have a look at the following example.
+
+```bash
+# Copy a skimmed version of a ROOT file on EOS with only the 'pt' branch
+./skimTree root://eoscms.cern.ch//eos/cms/store/group/phys_muon/TagAndProbe/Run2016/80X_v1/data/TnPTree_80X_Run2016B_v2_GoldenJSON_Run274241to274421.root outputFile.root --remove "*" --keep "pt"
 ```

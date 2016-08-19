@@ -16,11 +16,11 @@ args = parser.parse_args()
 from ROOT import * # import this here, otherwise it overwrites the argparse stuff
 
 # Get files
-fileInput = TFile(args.filenameInput)
+fileInput = TFile.Open(args.filenameInput)
 if not fileInput:
     print('[ERROR] Input file not found: {}'.format(args.filenameInput))
     sys.exit()
-fileOutput = TFile(args.filenameOutput, "recreate")
+fileOutput = TFile.Open(args.filenameOutput, "recreate")
 
 # Make output direcotry
 dirOutput = fileOutput.mkdir(args.directory)

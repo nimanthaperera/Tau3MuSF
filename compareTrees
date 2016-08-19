@@ -26,8 +26,8 @@ Compare variables of input files
 from ROOT import * # import this here, otherwise it overwrites the argparse stuff
 
 # Get tree and branches from target and reference
-fileTarget = TFile(args.filenameTarget)
-fileReference = TFile(args.filenameReference)
+fileTarget = TFile.Open(args.filenameTarget)
+fileReference = TFile.Open(args.filenameReference)
 if not fileTarget:
     print('[ERROR] Target file does not exist: {}'.format(args.filenameTarget))
     sys.exit()

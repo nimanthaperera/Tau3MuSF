@@ -25,7 +25,7 @@ Generate subtree by applying cut within the CopyTree ROOT function
 from ROOT import * # import this here, otherwise it overwrites the argparse stuff
 
 # Get input tree
-fileInput = TFile(args.filenameInput)
+fileInput = TFile.Open(args.filenameInput)
 if not fileInput:
     print('[ERROR] Input file not found: {}'.format(args.filenameInput))
     sys.exit()
@@ -50,7 +50,7 @@ if branchesKeep != ['']:
         treeInput.SetBranchStatus(branch, 1)
 
 # Make output directory and copy input tree
-fileOutput = TFile(args.filenameOutput, "recreate")
+fileOutput = TFile.Open(args.filenameOutput, "recreate")
 dirOutput = fileOutput.mkdir(args.directory)
 dirOutput.cd()
 treeOutput = treeInput.CopyTree(args.cut)
