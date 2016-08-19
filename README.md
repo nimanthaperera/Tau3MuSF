@@ -77,7 +77,7 @@ CUT2="tag_IsoMu20==1 && tag_pt>30"
 
 ## Helpful tips and tricks
 
-### Writing outputs to file
+### Write outputs to file
 
 Remember, all programs do not have a specific option to write the output to a file because this can be done directly in the terminal.
 
