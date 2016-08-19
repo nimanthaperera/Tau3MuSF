@@ -91,5 +91,5 @@ Because the input and output files are handled by `TFile` classes from ROOT, you
 
 ```bash
 # Copy a skimmed version of a ROOT file on EOS with only the 'pt' branch
-./skimTree root://eoscms.cern.ch//eos/cms/store/group/phys_muon/TagAndProbe/Run2016/80X_v1/data/TnPTree_80X_Run2016B_v2_GoldenJSON_Run274241to274421.root outputFile.root --remove "*" --keep "pt"
+./skimTree root://eoscms.cern.ch//eos/cms/store/group/path/to/file.root skimmedTree.root --remove "*" --keep "pt"
 ```
