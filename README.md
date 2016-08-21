@@ -75,6 +75,14 @@ CUT2="tag_IsoMu20==1 && tag_pt>30"
 ./printTree exampleTree.root --cut "($CUT1) && ($CUT2)"
 ```
 
+### Add weight branch to MC TnP tree
+
+Often, a MC TnP tree has to be reweighted with the number of primary vertices (pile-up) to match the data, e.g., if you are measuring an efficiency ratio of MC versus data. This can be done using this program, which copies the input MC files and writes them to the output with an additional weight branch based on the ratio `numVtxData/numVtxMC`.
+
+```bash
+./addNVtxWeight "fileData1 fileData2 ..." "fileMC1 fileMC2 ..." filenameOutput.root
+```
+
 ## Helpful tips and tricks
 
 ### Write outputs to file
