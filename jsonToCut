@@ -8,7 +8,7 @@ import json
 Setup argument parser
 """
 
-parser = argparse.ArgumentParser(description="")
+parser = argparse.ArgumentParser(description="This script generates a valid cut string from a JSON file, which specifies runs and luminosity sections. The output can be fed into other scripts as cut string. Note, that you can write the output of this script either to a file with './jsonToCut cut.json > outputFile' or to a shell variable with 'CUT=$(./jsonToCut cut.json)'.")
 parser.add_argument("filenameInput", help="Path to the input JSON file")
 args = parser.parse_args()
 
