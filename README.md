@@ -31,6 +31,10 @@ With the program `skimTree`, you can reduce TnP ROOT files by applying cuts on a
 # Remove all branches from the tree except the specified ones
 # Here, first you remove all of the branches and re-add only the desired ones
 ./skimTree exampleTree.root skimmedTree.root --remove "*" --keep "pt eta"
+
+# Load multiple files from local device and EOS and merge them together
+# Of course, it is still possible to apply cuts or remove branches
+./skimTree "exampleTree.root root://eoscms.cern.ch//eos/cms/store/group/path/to/file.root" mergedTree.root
 ```
 
 ### Print TnP tree
