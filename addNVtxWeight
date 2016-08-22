@@ -111,15 +111,12 @@ if args.verbosity==1:
 
 treeOutput = chainMC.CloneTree(0)
 weight = array('f', [1.0])
-branchVertices = chainMC.GetBranch(args.branch)
-leafVertices = branchVertices.GetLeaf(args.branch)
 treeOutput.Branch('weight', weight, 'weight/F')
 numEvents = chainMC.GetEntries()
 
 for i in range(numEvents):
     chainMC.GetEntry(i)
-    branchVertices.GetEntry(i)
-    weight[0] = weights[int(leafVertices.GetValue())]
+    weight[0] = weights[int(getattr(chainMC, args.branch))] # NOTE we need this struct because otherwise PyROOT somehow drops objects...
     treeOutput.Fill()
     if args.verbosity==1:
         if i%int(numEvents/(progressbarWidth-1))==0:
