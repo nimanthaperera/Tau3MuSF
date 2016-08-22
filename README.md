@@ -19,7 +19,7 @@ The script `compareTrees` can be used to check that the output ROOT files of dif
 ```
 ### Skim TnP tree
 
-With the program `skimTree`, you can reduce TnP ROOT files by applying cuts on a specified input tree and copy the result to an output ROOT file. As well, you can remove branches from the tree completely. This is mainly done to reduce the file size and therefore to reduce the needed processing time for TnP studies.
+With the program `skimTree`, you can reduce TnP ROOT files by applying cuts on a specified input tree and copy the result to an output ROOT file. As well, you can remove branches from the tree completely. This is mainly done to reduce the file size and therefore to reduce the needed processing time for TnP studies. Note, that you can load multiple files at once from your local storage device or EOS and merge them together in the output.
 
 ```bash
 # Skim a tree only with a cut string
