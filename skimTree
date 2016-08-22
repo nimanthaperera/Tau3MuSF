@@ -7,7 +7,7 @@ import sys
 Setup argument parser
 """
 
-parser = argparse.ArgumentParser(description="This program can be used to skim Tag-and-Probe ROOT files by applying cuts on an input tree and copy the result to an output ROOT file. As well, you can remove specific branches from the tree. The main purpose of the script is reducing the file size to speed up the processing during analysis.")
+parser = argparse.ArgumentParser(description="This program can be used to skim Tag-and-Probe ROOT files by applying cuts on an input tree and copy the result to an output ROOT file. As well, you can remove specific branches from the tree. The main purpose of the script is reducing the file size to speed up the processing during analysis. Note, that you can load multiple files at once from your locale storage device and EOS.")
 parser.add_argument("filenamesInput", help="Path to the input Tag-And-Probe ROOT files. Multiple files are given as string separated with blanks, e.g., \"filename1 filename2\".")
 parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROOT file")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
