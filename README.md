@@ -108,7 +108,7 @@ Because the input and output files are handled by `TFile` classes from ROOT, you
 
 ### Make the programs accessible in terminal
 
-To make the programs accessible from every directory on your system, you have to add the repository path to you `PATH` environment variable.
+To make the programs accessible from every directory on your system, you have to add the repository path to you `PATH` environment variable. Note, that you can attach this line to your `.bashrc` config in your home directory.
 
 ```bash
 export PATH=$PATH:/path/to/TnPUtils
