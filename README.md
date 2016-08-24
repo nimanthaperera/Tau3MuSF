@@ -105,3 +105,11 @@ Because the input and output files are handled by `TFile` classes from ROOT, you
 # Copy a skimmed version of a ROOT file on EOS with only the 'pt' branch
 ./skimTree root://eoscms.cern.ch//eos/cms/path/to/file.root skimmedTree.root --remove "*" --keep "pt"
 ```
+
+### Make the programs accessible in terminal
+
+To make the programs accessible from every directory on your system, you have to add the repository path to you `PATH` environment variable.
+
+```bash
+export PATH=$PATH:/path/to/TnPUtils
+```
