@@ -87,6 +87,14 @@ Often, a MC TnP tree has to be reweighted with the number of primary vertices (p
 ./addNVtxWeight "fileData1 fileData2 ..." "fileMC1 fileMC2 ..." filenameOutput.root
 ```
 
+### Make ratio plots
+
+To compare MC and data TnP efficiencies, it is useful to plot a ratio combined with the data itself. This can be done using the `makeRatioPlot` script, which is controlled by a JSON config file, e.g., `exampleConfig.json`. To run the configuration, feed the JSON file to the script as argument.
+
+```bash
+./makeRatioPlot exampleConfig.json
+```
+
 ## Helpful tips and tricks
 
 ### Write outputs to file

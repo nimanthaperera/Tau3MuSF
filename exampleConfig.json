@@ -1,0 +1,65 @@
+{
+    "example1"   :
+    {
+        "comment"   : "Copy and paste this example to setup your individual config file.",
+        "input1"    :
+        {
+            "label"             : "Data",
+            "filename"          : "exampleTnPData.root",
+            "directory"         : "tpTree/MuonEfficiency/",
+            "binnedVariable"    : "abseta"
+        },
+        "input2"    :
+        {
+            "label"             : "MC",
+            "filename"          : "exampleTnPMC.root",
+            "directory"         : "tpTree/MuonEfficiency/",
+            "binnedVariable"    : "abseta"
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 2.4, "Muon abseta"],
+            "yAbsolute"         : [0.55, 1.35, "Efficiency"],
+            "yRatio"            : [0.65, 1.35, "Data/MC"],
+            "legend"            : ["Legend header text", "Label input 1", "Label Input 2"]
+        },
+        "output"    :
+        {
+            "directory"         : "exampleRatio/",
+            "filenameRatio"     : "ratio",
+            "fileType"          : ["pdf", "png"]
+        }
+    },
+
+    "example2"   :
+    {
+        "comment"   : "This is an copy of the first example with some minor changes.",
+        "input1"    :
+        {
+            "label"             : "Data",
+            "filename"          : "exampleTnPData.root",
+            "directory"         : "tpTree/MuonEfficiency/",
+            "binnedVariable"    : "abseta"
+        },
+        "input2"    :
+        {
+            "label"             : "MC",
+            "filename"          : "exampleTnPMC.root",
+            "directory"         : "tpTree/MuonEfficiency/",
+            "binnedVariable"    : "abseta"
+        },
+        "plot"      :
+        {
+            "x"                 : [1.0, 2.0, "Muon abseta"],
+            "yAbsolute"         : [0.55, 1.35, "Efficiency"],
+            "yRatio"            : [0.65, 1.35, "Data/MC"],
+            "legend"            : ["p_{T} #eta #phi", "Data", "MC"]
+        },
+        "output"    :
+        {
+            "directory"         : "exampleRatio2/",
+            "filenameRatio"     : "ratio",
+            "fileType"          : ["pdf", "png"]
+        }
+    }
+}
