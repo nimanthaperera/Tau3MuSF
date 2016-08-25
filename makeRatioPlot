@@ -126,6 +126,7 @@ for keyPlot in data:
     graphInput1.SetTitle('')
     plotX = data[keyPlot]['plot']['x']
     plotYabsolute = data[keyPlot]['plot']['yAbsolute']
+    graphInput1.GetXaxis().SetRangeUser(plotX[0], plotX[1])
     graphInput1.GetYaxis().SetRangeUser(plotYabsolute[0], plotYabsolute[1])
     graphInput1.GetYaxis().SetTitle(plotYabsolute[2])
     graphInput1.GetYaxis().SetTitleSize(22)
@@ -151,14 +152,6 @@ for keyPlot in data:
     leg.SetTextFont(43)
     leg.SetTextSize(20)
     leg.Draw()
-
-    # FIXME remove me
-    """
-    axis = TGaxis(-5, 20, -5, 220, 20, 220, 510, '')
-    axis.SetLabelFont(43)
-    axis.SetLabelSize(25)
-    axis.Draw()
-    """
 
     canvasRatio.cd()
     padLower = TPad('padLower', 'padLower', 0, 0.0, 1, 0.3)
@@ -220,14 +213,14 @@ for keyPlot in data:
     for keys in dirInput1.GetListOfKeys():
         if keys.GetName()[0:len(binnedVariableInput1)]==binnedVariableInput1:
             dirBin = fileInput1.GetDirectory(pathInput1+keys.GetName())
-            canvas = dirBin.Get('fit_canvas')
             for fileType in data[keyPlot]['output']['fileType']:
+                canvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, otherwise the loop won't work
                 canvas.SaveAs(os.path.join(outputDirectoryInput1, keys.GetName()+'.'+fileType))
     for keys in dirInput2.GetListOfKeys():
         if keys.GetName()[0:len(binnedVariableInput2)]==binnedVariableInput2:
             dirBin = fileInput2.GetDirectory(pathInput2+keys.GetName())
-            canvas = dirBin.Get('fit_canvas')
             for fileType in data[keyPlot]['output']['fileType']:
+                canvas = dirBin.Get('fit_canvas')
                 canvas.SaveAs(os.path.join(outputDirectoryInput2, keys.GetName()+'.'+fileType))
 
     if args.verbosity==1:

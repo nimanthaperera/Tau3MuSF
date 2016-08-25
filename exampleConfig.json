@@ -27,7 +27,7 @@
         {
             "directory"         : "exampleRatio/",
             "filenameRatio"     : "ratio",
-            "fileType"          : ["pdf", "png"]
+            "fileType"          : ["png", "pdf"]
         }
     },
 
