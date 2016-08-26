@@ -226,13 +226,13 @@ for keyPlot in data:
     dirInput1 = fileInput1.GetDirectory(pathInput1)
     dirInput2 = fileInput2.GetDirectory(pathInput2)
     for keys in dirInput1.GetListOfKeys():
-        if keys.GetName()[0:len(binnedVariableInput1)]==binnedVariableInput1:
+        if TString(keys.GetName()).Contains(binnedVariableInput1):
             dirBin = fileInput1.GetDirectory(pathInput1+keys.GetName())
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, otherwise the loop won't work
                 canvas.SaveAs(os.path.join(outputDirectoryInput1, keys.GetName()+'.'+fileType))
     for keys in dirInput2.GetListOfKeys():
-        if keys.GetName()[0:len(binnedVariableInput2)]==binnedVariableInput2:
+        if TString(keys.GetName()).Contains(binnedVariableInput2):
             dirBin = fileInput2.GetDirectory(pathInput2+keys.GetName())
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas')
