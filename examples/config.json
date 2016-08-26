@@ -5,14 +5,14 @@
         "input1"    :
         {
             "label"             : "Data",
-            "filename"          : "exampleTnPData.root",
+            "filename"          : "examples/TnPData.root",
             "directory"         : "tpTree/MuonEfficiency/",
             "binnedVariable"    : "abseta"
         },
         "input2"    :
         {
             "label"             : "MC",
-            "filename"          : "exampleTnPMC.root",
+            "filename"          : "examples/TnPMC.root",
             "directory"         : "tpTree/MuonEfficiency/",
             "binnedVariable"    : "abseta"
         },
@@ -39,14 +39,14 @@
         "input1"    :
         {
             "label"             : "Label input 1",
-            "filename"          : "exampleTnPData.root",
+            "filename"          : "examples/TnPData.root",
             "directory"         : "tpTree/MuonEfficiency/",
             "binnedVariable"    : "abseta"
         },
         "input2"    :
         {
             "label"             : "Label input 2",
-            "filename"          : "exampleTnPMC.root",
+            "filename"          : "examples/TnPMC.root",
             "directory"         : "tpTree/MuonEfficiency/",
             "binnedVariable"    : "abseta"
         },
