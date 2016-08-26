@@ -114,12 +114,12 @@ for keyPlot in data:
     hist1.Divide(hist2)
     ratio = hist1
 
-    # Put together a canvas with graphs in top and ratio in bottom
+    # Put together a canvas with graphs in top, ratio in bottom and CMS/Lumi text/caption
     canvasRatio = TCanvas('canvasRatio', 'canvasRatio', 800, 600)
 
     padUpper = TPad('padUpper', 'padUpper', 0, 0.3, 1, 1.0)
     padUpper.SetBottomMargin(0.0)
-    padUpper.SetTopMargin(0.1)
+    padUpper.SetTopMargin(0.15)
     padUpper.Draw()
     padUpper.cd()
     graphInput1.Draw('AP')
@@ -140,7 +140,7 @@ for keyPlot in data:
     graphInput2.SetMarkerColor(4)
 
     legend = data[keyPlot]['plot']['legend']
-    leg = TLegend(0.45, 0.65, 0.75, 0.85)
+    leg = TLegend(0.45, 0.62, 0.75, 0.82)
     leg.SetHeader(legend[0])
     header = leg.GetListOfPrimitives().First()
     header.SetTextColor(1)
@@ -182,6 +182,21 @@ for keyPlot in data:
     ratio.GetYaxis().SetLabelFont(43)
     ratio.GetYaxis().SetTitleSize(22)
     ratio.Draw()
+
+    canvasRatio.cd()
+    latex = TLatex()
+    latex.SetNDC()
+    latex.SetTextFont(61)
+    latex.SetTextSize(0.06)
+    latex.DrawLatex(0.14, 0.83, data[keyPlot]['plot']['logo'][0])
+    latex.SetTextFont(52)
+    latex.SetTextSize(0.04)
+    latex.SetTextAlign(11);
+    latex.DrawLatex(0.14, 0.78, data[keyPlot]['plot']['logo'][1])
+    latex.SetTextFont(42)
+    latex.SetTextSize(0.045)
+    latex.SetTextAlign(31);
+    latex.DrawLatex(0.90, 0.91, data[keyPlot]['plot']['caption'])
     canvasRatio.Update()
 
     # Make directory and save ratio canvas
