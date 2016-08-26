@@ -95,6 +95,15 @@ To compare MC and data TnP efficiencies, it is useful to plot a ratio combined w
 ./makeRatioPlot exampleConfig.json
 ```
 
+### Publish directory
+
+The program `publishDir` copies a given file, e.g, the `index.php` file from this repository, recursively into a given directory. Then, it is easily browsable through a web browser, if the directory is accessed through a web server such as Apache. You can do this as CERN user, see [this link](https://espace.cern.ch/webservices-help/websitemanagement/ManagingWebsitesAtCERN/Pages/WebsitecreationandmanagementatCERN.aspx) for more information. Following example shows a use-case in combination with the `makeRatioPlot` tool.
+
+```bash
+./makeRatioPlot exampleConfig.json
+./publishDir exampleRatio index.php
+```
+
 ## Helpful tips and tricks
 
 ### Write outputs to file

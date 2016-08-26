@@ -9,7 +9,7 @@ import json
 Setup argument parser
 """
 
-parser = argparse.ArgumentParser(description="")
+parser = argparse.ArgumentParser(description="This program takes an input JSON config and extracts plots from Tag-and-Probe ROOT files. The output consists of a ratio plot of two efficiency graphs and the according fit canvases.")
 parser.add_argument("inputJsonConfig", help="Path to the input JSON config file")
 parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity")
 args = parser.parse_args()
