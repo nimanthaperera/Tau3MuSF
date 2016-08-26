@@ -140,7 +140,7 @@ for keyPlot in data:
     graphInput2.SetMarkerColor(4)
 
     legend = data[keyPlot]['plot']['legend']
-    leg = TLegend(0.45, 0.62, 0.75, 0.82)
+    leg = TLegend(0.31, 0.62, 0.75, 0.82)
     leg.SetHeader(legend[0])
     header = leg.GetListOfPrimitives().First()
     header.SetTextColor(1)
