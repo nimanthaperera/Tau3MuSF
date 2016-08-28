@@ -89,7 +89,7 @@ Often, a MC TnP tree has to be reweighted with the number of primary vertices (p
 
 ### Make (nice looking) efficiency plots
 
-With this program, you can generate nice looking, ROOT-like and CMS-approvable plots of TnP efficiencies. The plot contains the efficiency vs a binned variable, e.g., pt or abseta. The plots can be done batchwise by defining the free parameters in a JSON config, e.g., `examples/configPlot.json`. To run the configuration, feed the JSON file to the script. Run following example to examine the output.
+With this program, you can generate nice looking, ROOT-like and CMS-approvable plots of TnP efficiencies. The plot contains the efficiency vs a binned variable, e.g., pt or abseta, and you can superimpose multiple graphs. The plots can be done batchwise by defining the free parameters in a JSON config, e.g., `examples/configPlot.json`. To run the configuration, feed the JSON file to the script. Run following example to examine the output.
 
 ```bash
 ./makePlot examples/configPlot.json
