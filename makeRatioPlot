@@ -46,8 +46,8 @@ for keyPlot in data:
     fileInput2 = TFile.Open(filenameInput2)
 
     # Get path to result plot
-    pathInput1 = data[keyPlot]['input1']['directory']+'fit_eff_plots/'
-    pathInput2 = data[keyPlot]['input2']['directory']+'fit_eff_plots/'
+    pathInput1 = os.path.join(data[keyPlot]['input1']['directory'],'fit_eff_plots/')
+    pathInput2 = os.path.join(data[keyPlot]['input2']['directory'],'fit_eff_plots/')
     if args.verbosity==1:
         print('Paths to plots: {} {}'.format(pathInput1, pathInput2))
 
@@ -181,6 +181,7 @@ for keyPlot in data:
     ratio.GetYaxis().SetTitleFont(63)
     ratio.GetYaxis().SetLabelFont(43)
     ratio.GetYaxis().SetTitleSize(22)
+    ratio.GetYaxis().SetLabelSize(20)
     ratio.Draw()
 
     canvasRatio.cd()
@@ -208,7 +209,7 @@ for keyPlot in data:
     for fileType in data[keyPlot]['output']['fileType']:
         canvasRatio.SaveAs(os.path.join(outputDirectory,data[keyPlot]['output']['filenameRatio']+'.'+fileType))
 
-    # Make directorys for fit canvases
+    # Make directories for fit canvases
     labelInput1 = data[keyPlot]['input1']['label']
     labelInput2 = data[keyPlot]['input2']['label']
     outputDirectoryInput1 = os.path.join(outputDirectory, labelInput1)
@@ -227,13 +228,13 @@ for keyPlot in data:
     dirInput2 = fileInput2.GetDirectory(pathInput2)
     for keys in dirInput1.GetListOfKeys():
         if TString(keys.GetName()).Contains(binnedVariableInput1):
-            dirBin = fileInput1.GetDirectory(pathInput1+keys.GetName())
+            dirBin = fileInput1.GetDirectory(os.path.join(pathInput1,keys.GetName()))
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, otherwise the loop won't work
                 canvas.SaveAs(os.path.join(outputDirectoryInput1, keys.GetName()+'.'+fileType))
     for keys in dirInput2.GetListOfKeys():
         if TString(keys.GetName()).Contains(binnedVariableInput2):
-            dirBin = fileInput2.GetDirectory(pathInput2+keys.GetName())
+            dirBin = fileInput2.GetDirectory(os.path.join(pathInput2,keys.GetName()))
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas')
                 canvas.SaveAs(os.path.join(outputDirectoryInput2, keys.GetName()+'.'+fileType))

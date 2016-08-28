@@ -27,7 +27,7 @@
         },
         "output"    :
         {
-            "directory"         : "exampleRatio/config_1",
+            "directory"         : "examplePlots/ratio_1",
             "filenameRatio"     : "ratio",
             "fileType"          : ["png", "pdf"]
         }
@@ -52,7 +52,7 @@
         },
         "plot"      :
         {
-            "x"                 : [1.0, 2.0, "label X"],
+            "x"                 : [1.0, 2.0, "Label X"],
             "yAbsolute"         : [0.55, 1.35, "Lable Y upper"],
             "yRatio"            : [0.65, 1.35, "Label Y lower"],
             "legend"            : ["Legend title", "Legend input 1", "Legend input 2"],
@@ -61,7 +61,7 @@
         },
         "output"    :
         {
-            "directory"         : "exampleRatio/config_2",
+            "directory"         : "examplePlots/ratio_2",
             "filenameRatio"     : "ratio",
             "fileType"          : ["pdf", "png"]
         }

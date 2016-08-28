@@ -87,12 +87,20 @@ Often, a MC TnP tree has to be reweighted with the number of primary vertices (p
 ./addNVtxWeight "fileData1 fileData2 ..." "fileMC1 fileMC2 ..." filenameOutput.root
 ```
 
-### Make ratio plots
+### Make (nice looking) efficiency plots
 
-To compare MC and data TnP efficiencies, it is useful to plot a ratio combined with the data itself. This can be done using the `makeRatioPlot` script, which is controlled by a JSON config file, e.g., `examples/config.json`. To run the configuration, feed the JSON file to the script as argument.
+With this program, you can generate nice looking, ROOT-like and CMS-approvable plots of TnP efficiencies. The plot contains the efficiency vs a binned variable, e.g., pt or abseta. The plots can be done batchwise by defining the free parameters in a JSON config, e.g., `examples/configPlot.json`. To run the configuration, feed the JSON file to the script. Run following example to examine the output.
 
 ```bash
-./makeRatioPlot examples/config.json
+./makePlot examples/configPlot.json
+```
+
+### Make ratio plots
+
+To compare MC and data TnP efficiencies, it is useful to plot a ratio combined with the data itself. This can be done using the `makeRatioPlot` script, which is controlled by a JSON config file, e.g., `examples/configRatioPlot.json`. To run the configuration, feed the JSON file to the script as argument.
+
+```bash
+./makeRatioPlot examples/configRatioPlot.json
 ```
 
 ### Publish directory as a web page
@@ -101,7 +109,7 @@ The program `publishDir` copies a given file, e.g, the `index.php` file from thi
 
 ```bash
 # Create plots
-./makeRatioPlot examples/config.json
+./makeRatioPlot examples/configRatioPlot.json
 
 # Make them accessable through a PHP web page
 ./publishDir exampleRatio index.php
