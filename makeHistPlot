@@ -62,10 +62,13 @@ for keyPlot in data:
 
     # Draw histograms
     colorMap = data[keyPlot]['plot']['colorMap']
+    styleMap = data[keyPlot]['plot']['styleMap']
+    if args.verbosity==1:
+        print('Using colormap: {}'.format(colorMap))
+        print('Using stylemap: {}'.format(styleMap))
     if len(histograms)>len(colorMap):
         print('[ERROR] Colormap does not have enough entries for given histograms')
         sys.exit()
-    styleMap = data[keyPlot]['plot']['styleMap']
     if len(histograms)>len(styleMap):
         print('[ERROR] Stylemap does not have enough entries for given histograms')
         sys.exit()
