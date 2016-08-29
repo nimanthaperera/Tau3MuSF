@@ -89,18 +89,18 @@ Often, a MC TnP tree has to be reweighted with the number of primary vertices (p
 
 ### Add new branch to TnP tree from an expression
 
-Here, you can add a new branch to a TnP tree using an expression. E.g., you want to cut on a variable, which is not present in the tree, but it is calculable with available variables, then you can use this tool to generate the new branch. Because this feature is not directly supported by ROOT, the given expression has to have following form: `"EXPRESSION,USED_VARIABLE_1,USED_VARIABLE_2,..."` Note, that you can use numpy in the expression, because it is wrapped to a Python statement. Have a look at following examples.
+Here, you can add a new branch to a TnP tree using an expression. E.g., you want to cut on a variable, which is not present in the tree, but it is calculable with available variables, then you can use this tool to generate the new branch. Because this feature is not directly supported by ROOT, the given expression has to have following form: `"EXPRESSION;USED_VARIABLE_1;USED_VARIABLE_2,..."` Note, that you can use numpy in the expression, because it is wrapped to a Python statement. Have a look at following examples.
 
 ```bash
 # We recreate the abseta branch using eta
 # You can check the result afterwards using ROOT's TBrowser
-./addBranch "examples/TnPTree.root" outputTree.root "abs(eta),eta" absetaNew
+./addBranch "examples/TnPTree.root" outputTree.root "abs(eta);eta" absetaNew
 
 # You can even use numpy in the expression
-./addBranch "examples/TnPTree.root" outputTree.root "numpy.log10(pt),pt" ptLog10
+./addBranch "examples/TnPTree.root" outputTree.root "numpy.log10(pt);pt" ptLog10
 
 # Here some random, but complicated, expression
-./addBranch "examples/TnPTree.root" outputTree.root "numpy.sqrt(pt*abs(eta))**3,pt,eta" randomVar
+./addBranch "examples/TnPTree.root" outputTree.root "numpy.sqrt(pt*abs(eta))**3;pt;eta" randomVar
 ```
 
 ### Make (nice looking) efficiency plots

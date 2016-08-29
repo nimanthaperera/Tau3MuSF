@@ -9,10 +9,10 @@ Setup argument parser
 """
 
 
-parser = argparse.ArgumentParser(description="This program adds a branch to a Tag-and-Probe tree from an expression, e.g., the expression \"abs(eta),eta\" creates a new variables which is equal to abseta. The expression must have the from \"EXPRESSION,USED_VARIABLE_1,USED_VARIABLE_2,...\". Because the expression is wrapped to Python, numpy can be used, e.g., \"numpy.log10(pt),pt\".")
+parser = argparse.ArgumentParser(description="This program adds a branch to a Tag-and-Probe tree from an expression, e.g., the expression \"abs(eta);eta\" creates a new variables which is equal to abseta. The expression must have the from \"EXPRESSION;USED_VARIABLE_1;USED_VARIABLE_2;...\". Because the expression is wrapped to Python, numpy can be used, e.g., \"numpy.log10(pt);pt\".")
 parser.add_argument("filenamesInput", help="Path to the input Tag-And-Probe ROOT files")
 parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROOT file with added branch")
-parser.add_argument("expression", help="Expression which is applied on tree to create new branch. Take care, that the expression has to have the form \"EXPRESSION,USED_VARIABLE_1,USED_VARIABLE_2,...\"")
+parser.add_argument("expression", help="Expression which is applied on tree to create new branch. Take care, that the expression has to have the form \"EXPRESSION;USED_VARIABLE_1;USED_VARIABLE_2;...\"")
 parser.add_argument("branch", help="Name of new branch")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
@@ -51,7 +51,7 @@ Make new branch out of expression
 """
 
 # Wrap expression to actual expression and variable list
-tmp = args.expression.split(',')
+tmp = args.expression.split(';')
 if len(tmp)<=1:
     print('[ERROR] Input expression has length less than 1, please check: {}'.format(tmp))
 expression = tmp[0].strip()
