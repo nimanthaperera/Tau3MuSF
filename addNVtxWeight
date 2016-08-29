@@ -2,6 +2,7 @@
 
 import argparse
 import sys
+import os
 from array import array
 
 """
@@ -29,7 +30,7 @@ from ROOT import * # import this here, otherwise it overwrites the argparse stuf
 gROOT.SetBatch(True) # set ROOT to batch mode, this suppresses printing canvases
 
 # Get path to tree
-treePath = args.directory+'/'+args.tree
+treePath = os.path.join(args.directory,args.tree)
 if args.verbosity==1:
     print('Used path to tree in files:')
     print('---------------------------')

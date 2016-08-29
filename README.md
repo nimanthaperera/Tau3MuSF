@@ -87,6 +87,22 @@ Often, a MC TnP tree has to be reweighted with the number of primary vertices (p
 ./addNVtxWeight "fileData1 fileData2 ..." "fileMC1 fileMC2 ..." filenameOutput.root
 ```
 
+### Add new branch to TnP tree from an expression
+
+Here, you can add a new branch to a TnP tree using an expression. E.g., you want to cut on a variable, which is not present in the tree, but it is calculable with available variables, then you can use this tool to generate the new branch. Because this feature is not directly supported by ROOT, the given expression has to have following form: `"EXPRESSION,USED_VARIABLE_1,USED_VARIABLE_2,..."` Note, that you can use numpy in the expression, because it is wrapped to a Python statement. Have a look at following examples.
+
+```bash
+# We recreate the abseta branch using eta
+# You can check the result afterwards using ROOT's TBrowser
+./addBranch "examples/TnPTree.root" outputTree.root "abs(eta),eta" absetaNew
+
+# You can even use numpy in the expression
+./addBranch "examples/TnPTree.root" outputTree.root "numpy.log10(pt),pt" ptLog10
+
+# Here some random, but complicated, expression
+./addBranch "examples/TnPTree.root" outputTree.root "numpy.sqrt(pt*abs(eta))**3,pt,eta" randomVar
+```
+
 ### Make (nice looking) efficiency plots
 
 With this program, you can generate nice looking, ROOT-like and CMS-approvable plots of TnP efficiencies. The plot contains the efficiency vs a binned variable, e.g., pt or abseta, and you can superimpose multiple graphs. The plots can be done batchwise by defining the free parameters in a JSON config, e.g., `examples/configPlot.json`. To run the configuration, feed the JSON file to the script. Run following example to examine the output.
