@@ -119,6 +119,14 @@ To compare MC and data TnP efficiencies, it is useful to plot a ratio combined w
 ./makeRatioPlot examples/configRatioPlot.json
 ```
 
+### Make histograms from TnP trees
+
+The program `makeHistPlots` can produce histograms from TnP trees. It can be used the same way the `Draw()` method from `TTree` works, but produces more nicely looking results. Such as the above presented plot programs, it has to be feeded with a JSON config file, e.g., `examples/configHistPlot.json'. Please note that only 1D histograms are supported.
+
+```bash
+./makeHistPlot examples/configHistPlot.json
+```
+
 ### Publish directory as a web page
 
 The program `publishDir` copies a given file, e.g, the `index.php` file from this repository, recursively into a given directory. Then, it is easily browsable through a web browser, if the directory is accessed through a web server such as Apache. You can do this as CERN user, follow [this link](https://espace.cern.ch/webservices-help/websitemanagement/ManagingWebsitesAtCERN/Pages/WebsitecreationandmanagementatCERN.aspx) for more information. Following example shows an use-case in combination with the `makeRatioPlot` tool.
