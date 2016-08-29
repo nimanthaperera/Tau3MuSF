@@ -4,7 +4,7 @@ This repository holds a set of utilities/macros to work with Tag-and-Probe (TnP)
 
 All script are written in python and take a `--help` argument, which describes the functionality of the different scripts. The following sections explain the usage in simple use-cases. All of them should work with a setup CMS software (CMSSW) environment.
 
-## Programs
+## Programs: Manipulating and printing TnP trees
 
 ### Compare TnP trees
 
@@ -102,6 +102,8 @@ Here, you can add a new branch to a TnP tree using an expression. E.g., you want
 # Here some random, but complicated, expression
 ./addBranch "examples/TnPTree.root" outputTree.root "numpy.sqrt(pt*abs(eta))**3;pt;eta" randomVar
 ```
+
+## Programs: Plotting and publishing of results
 
 ### Make (nice looking) efficiency plots
 
