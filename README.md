@@ -103,7 +103,7 @@ Here, you can add a new branch to a TnP tree using an expression. E.g., you want
 ./addBranch "examples/TnPTree.root" outputTree.root "numpy.sqrt(pt*abs(eta))**3;pt;eta" randomVar
 ```
 
-## Programs: Plotting and publishing of results
+## Programs: Plotting and publishing results
 
 ### Make (nice looking) efficiency plots
 
