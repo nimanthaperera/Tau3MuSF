@@ -102,7 +102,7 @@ for keyPlot in data:
     mg.GetXaxis().SetLabelFont(43)
     mg.GetXaxis().SetTitleSize(22)
     mg.GetXaxis().SetLabelSize(20)
-    mg.GetXaxis().SetTitleOffset(1.1)
+    mg.GetXaxis().SetTitleOffset(1.2)
     mg.GetYaxis().SetRangeUser(plotY[0], plotY[1])
     mg.GetYaxis().SetTitle(plotY[2])
     mg.GetYaxis().SetLabelSize(22)
@@ -110,7 +110,7 @@ for keyPlot in data:
     mg.GetYaxis().SetLabelFont(43)
     mg.GetYaxis().SetTitleSize(22)
     mg.GetYaxis().SetLabelSize(20)
-    mg.GetYaxis().SetTitleOffset(1.3)
+    mg.GetYaxis().SetTitleOffset(1.2)
 
     canvas.cd()
     leg = TLegend(0.35, 0.72, 0.75, 0.86)
