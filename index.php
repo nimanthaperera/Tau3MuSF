@@ -40,7 +40,7 @@
                         }
                         continue;
                     }
-                    if (isset($_GET['match']) && !fnmatch('*'.$_GET['match'].'*', $filename)) continue;
+                    if (isset($_GET['match']) && !preg_match('/'.$_GET['match'].'/', $filename)) continue;
                     print "<div class='pic'>\n";
                     print "<h3><a href=\"$filename\">$filename</a></h3>";
                     print "<a href=\"$filename\"><img src=\"$filename\" style=\"border: none; width: 300px; \"></a>";
