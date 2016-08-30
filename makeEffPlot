@@ -157,6 +157,8 @@ for keyPlot in data:
 
     # Skip fetching fit canvases if flag is set
     if args.fast != 0:
+        if args.verbosity==1:
+            print('')
         continue
 
     # Make directories for fit canvases
@@ -179,15 +181,19 @@ for keyPlot in data:
             sys.exit()
         inputDir = inputFile.GetDirectory(inputPathsFit[iFile])
         if not inputDir:
-            print('[ERROR] Cannot find file: {}'.format(inputPathsFit[iFile]))
+            print('[ERROR] Cannot find directory (file, directory): {}, {}'.format(inputFilenames[iFile], inputPathsFit[iFile]))
             sys.exit()
         for keys in inputDir.GetListOfKeys():
             if TString(keys.GetName()).Contains(inputBinnedVariables[iFile]):
-                dirBin = inputFile.GetDirectory(os.path.join(inputPathsFit[iFile], keys.GetName()))
+                pathDirBin = os.path.join(inputPathsFit[iFile], keys.GetName())
+                dirBin = inputFile.GetDirectory(pathDirBin)
                 for fileType in data[keyPlot]['output']['fileType']:
                     fitCanvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, toherwise the loop won't work
                     pathOutput = os.path.join(outputDirectoryInputs[iFile], keys.GetName()+'.'+fileType)
-                    fitCanvas.SaveAs(pathOutput)
+                    if not fitCanvas:
+                        print('[WARNING] Found missing fit canvas (file, directory, directory bin): {}, {}, {}'.format(inputFilenames[iFile],inputPathsFit[iFile],pathDirBin))
+                    else:
+                        fitCanvas.SaveAs(pathOutput)
 
     if args.verbosity==1:
         print('')
