@@ -229,6 +229,8 @@ for keyPlot in data:
 
     # Skip fetching fit canvases if flag is set
     if args.fast != 0:
+        if args.verbosity==1:
+            print('')
         continue
 
     # Make directories for fit canvases
@@ -253,13 +255,19 @@ for keyPlot in data:
             dirBin = fileInput1.GetDirectory(os.path.join(pathInput1,keys.GetName()))
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, otherwise the loop won't work
-                canvas.SaveAs(os.path.join(outputDirectoryInput1, keys.GetName()+'.'+fileType))
+                if not canvas:
+                    print('[WARNING] Found missing fit canvas in input 1 (directory, directory bin): {}, {}, {}'.format(dirInput1, dirBin))
+                else:
+                    canvas.SaveAs(os.path.join(outputDirectoryInput1, keys.GetName()+'.'+fileType))
     for keys in dirInput2.GetListOfKeys():
         if TString(keys.GetName()).Contains(binnedVariableInput2):
             dirBin = fileInput2.GetDirectory(os.path.join(pathInput2,keys.GetName()))
             for fileType in data[keyPlot]['output']['fileType']:
                 canvas = dirBin.Get('fit_canvas')
-                canvas.SaveAs(os.path.join(outputDirectoryInput2, keys.GetName()+'.'+fileType))
+                if not canvas:
+                    print('[WARNING] Found missing fit canvas in input 2 (directory, directory bin): {}, {}, {}'.format(dirInput2, dirBin))
+                else:
+                    canvas.SaveAs(os.path.join(outputDirectoryInput2, keys.GetName()+'.'+fileType))
 
     if args.verbosity==1:
         print('')
