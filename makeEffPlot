@@ -53,6 +53,9 @@ for keyPlot in data:
     inputGraphs = []
     for iGraph in range(len(inputFilenames)):
         inputFile = TFile.Open(inputFilenames[iGraph])
+        if not inputFile:
+            print('[ERROR] File not found: {}'.format(inputFilenames[iGraph]))
+            sys.exit()
         inputDir = inputFile.GetDirectory(inputPaths[iGraph])
         inputName = None
         for keys in inputDir.GetListOfKeys():

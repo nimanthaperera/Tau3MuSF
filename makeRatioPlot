@@ -43,7 +43,13 @@ for keyPlot in data:
     if args.verbosity==1:
         print('Input files: {} {}'.format(filenameInput1, filenameInput2))
     fileInput1 = TFile.Open(filenameInput1)
+    if not fileInput1:
+        print('[ERROR] File not found: {}'.format(filenameInput1))
+        sys.exit()
     fileInput2 = TFile.Open(filenameInput2)
+    if not fileInput2:
+        print('[ERROR] File not found: {}'.format(filenameInput2))
+        sys.exit()
 
     # Get path to result plot
     pathInput1 = os.path.join(data[keyPlot]['input1']['directory'],'fit_eff_plots/')
