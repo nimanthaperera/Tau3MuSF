@@ -187,13 +187,6 @@ for keyPlot in data:
                 for fileType in data[keyPlot]['output']['fileType']:
                     fitCanvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, toherwise the loop won't work
                     pathOutput = os.path.join(outputDirectoryInputs[iFile], keys.GetName()+'.'+fileType)
-                    if not fitCanvas:
-                        print(inputFilenames[iFile])
-                        print(inputFile)
-                        print(pathOutput)
-                        print(fitCanvas)
-                        print(dirBin)
-                        print(dirBin.Get('fit_canvas'))
                     fitCanvas.SaveAs(pathOutput)
 
     if args.verbosity==1:
