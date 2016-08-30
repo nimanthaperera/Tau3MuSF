@@ -11,6 +11,7 @@ Setup argument parser
 
 parser = argparse.ArgumentParser(description="This program takes an input JSON config and extracts plots from Tag-and-Probe ROOT files. The output consists of a plot with superimposed graphs from multiple TnP files and the according fit canvases.")
 parser.add_argument("inputJsonConfig", help="Path to the input JSON config file")
+parser.add_argument("-f", "--fast", default=0, action="count", help="Skip fetching and saving the fit canvases for each plot")
 parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity")
 args = parser.parse_args()
 
@@ -154,6 +155,10 @@ for keyPlot in data:
     for fileType in data[keyPlot]['output']['fileType']:
         canvas.SaveAs(os.path.join(outputDirectory,data[keyPlot]['output']['filenamePlot']+'.'+fileType))
 
+    # Skip fetching fit canvases if flag is set
+    if args.fast != 0:
+        continue
+
     # Make directories for fit canvases
     if args.verbosity==1:
         print('Output directories for fit canvases: {}'.format(inputLabels))
@@ -169,13 +174,27 @@ for keyPlot in data:
         inputPathsFit.append(data[keyPlot]['inputs'][keyInputs]['directory'])
     for iFile in range(len(inputFilenames)):
         inputFile = TFile(inputFilenames[iFile])
+        if not inputFile:
+            print('[ERROR] Cannot find file: {}'.format(inputFilenames[iFile]))
+            sys.exit()
         inputDir = inputFile.GetDirectory(inputPathsFit[iFile])
+        if not inputDir:
+            print('[ERROR] Cannot find file: {}'.format(inputPathsFit[iFile]))
+            sys.exit()
         for keys in inputDir.GetListOfKeys():
             if TString(keys.GetName()).Contains(inputBinnedVariables[iFile]):
                 dirBin = inputFile.GetDirectory(os.path.join(inputPathsFit[iFile], keys.GetName()))
                 for fileType in data[keyPlot]['output']['fileType']:
                     fitCanvas = dirBin.Get('fit_canvas') # NOTE you have to put this here, toherwise the loop won't work
-                    fitCanvas.SaveAs(os.path.join(outputDirectoryInputs[iFile], keys.GetName()+'.'+fileType))
+                    pathOutput = os.path.join(outputDirectoryInputs[iFile], keys.GetName()+'.'+fileType)
+                    if not fitCanvas:
+                        print(inputFilenames[iFile])
+                        print(inputFile)
+                        print(pathOutput)
+                        print(fitCanvas)
+                        print(dirBin)
+                        print(dirBin.Get('fit_canvas'))
+                    fitCanvas.SaveAs(pathOutput)
 
     if args.verbosity==1:
         print('')

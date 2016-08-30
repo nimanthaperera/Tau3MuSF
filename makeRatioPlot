@@ -11,6 +11,7 @@ Setup argument parser
 
 parser = argparse.ArgumentParser(description="This program takes an input JSON config and extracts plots from Tag-and-Probe ROOT files. The output consists of a ratio plot of two efficiency graphs and the according fit canvases.")
 parser.add_argument("inputJsonConfig", help="Path to the input JSON config file")
+parser.add_argument("-f", "--fast", default=0, action="count", help="Skip fetching and saving the fit canvases for each plot")
 parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity")
 args = parser.parse_args()
 
@@ -224,6 +225,11 @@ for keyPlot in data:
         os.makedirs(outputDirectory)
     for fileType in data[keyPlot]['output']['fileType']:
         canvasRatio.SaveAs(os.path.join(outputDirectory,data[keyPlot]['output']['filenameRatio']+'.'+fileType))
+
+
+    # Skip fetching fit canvases if flag is set
+    if args.fast != 0:
+        continue
 
     # Make directories for fit canvases
     labelInput1 = data[keyPlot]['input1']['label']
