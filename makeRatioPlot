@@ -115,11 +115,15 @@ for keyPlot in data:
     ratio = hist1
 
     # Put together a canvas with graphs in top, ratio in bottom and CMS/Lumi text/caption
-    canvasRatio = TCanvas('canvasRatio', 'canvasRatio', 800, 600)
+    canvasRatio = TCanvas('canvasRatio', 'canvasRatio', 800, 800)
+    colorMap = data[keyPlot]['plot']['colorMap']
+    if len(colorMap) != 3:
+        print('[ERROR] Colormap needs to have length 3 [color input1, color input2, color ratio]')
+        sys.exit()
 
     padUpper = TPad('padUpper', 'padUpper', 0, 0.3, 1, 1.0)
     padUpper.SetBottomMargin(0.0)
-    padUpper.SetTopMargin(0.15)
+    padUpper.SetTopMargin(0.12)
     padUpper.Draw()
     padUpper.cd()
     graphInput1.Draw('AP')
@@ -129,18 +133,21 @@ for keyPlot in data:
     graphInput1.GetXaxis().SetRangeUser(plotX[0], plotX[1])
     graphInput1.GetYaxis().SetRangeUser(plotYabsolute[0], plotYabsolute[1])
     graphInput1.GetYaxis().SetTitle(plotYabsolute[2])
+    graphInput1.GetYaxis().SetTitleOffset(1.2)
     graphInput1.GetYaxis().SetTitleSize(22)
     graphInput1.GetYaxis().SetTitleFont(63)
     graphInput1.GetYaxis().SetLabelFont(43)
     graphInput1.GetYaxis().SetLabelSize(20)
     graphInput1.SetMarkerStyle(20)
+    graphInput1.SetLineColor(colorMap[0])
+    graphInput1.SetMarkerColor(colorMap[0])
     graphInput2.Draw('P')
-    graphInput2.SetLineColor(4)
     graphInput2.SetMarkerStyle(21)
-    graphInput2.SetMarkerColor(4)
+    graphInput2.SetLineColor(colorMap[1])
+    graphInput2.SetMarkerColor(colorMap[1])
 
     legend = data[keyPlot]['plot']['legend']
-    leg = TLegend(0.31, 0.62, 0.75, 0.82)
+    leg = TLegend(0.35, 0.67, 0.75, 0.85)
     leg.SetHeader(legend[0])
     header = leg.GetListOfPrimitives().First()
     header.SetTextColor(1)
@@ -155,7 +162,7 @@ for keyPlot in data:
 
     canvasRatio.cd()
     padLower = TPad('padLower', 'padLower', 0, 0.0, 1, 0.3)
-    padLower.SetBottomMargin(0.40)
+    padLower.SetBottomMargin(0.35)
     padLower.SetTopMargin(0.0)
     padLower.SetGridy()
     padLower.Draw()
@@ -182,6 +189,9 @@ for keyPlot in data:
     ratio.GetYaxis().SetLabelFont(43)
     ratio.GetYaxis().SetTitleSize(22)
     ratio.GetYaxis().SetLabelSize(20)
+    ratio.GetYaxis().SetTitleOffset(1.2)
+    ratio.SetLineColor(colorMap[2])
+    ratio.SetMarkerColor(colorMap[2])
     ratio.Draw()
 
     canvasRatio.cd()
@@ -189,15 +199,15 @@ for keyPlot in data:
     latex.SetNDC()
     latex.SetTextFont(61)
     latex.SetTextSize(0.06)
-    latex.DrawLatex(0.14, 0.83, data[keyPlot]['plot']['logo'][0])
+    latex.DrawLatex(0.14, 0.84, data[keyPlot]['plot']['logo'][0])
     latex.SetTextFont(52)
     latex.SetTextSize(0.04)
     latex.SetTextAlign(11);
-    latex.DrawLatex(0.14, 0.78, data[keyPlot]['plot']['logo'][1])
+    latex.DrawLatex(0.14, 0.79, data[keyPlot]['plot']['logo'][1])
     latex.SetTextFont(42)
-    latex.SetTextSize(0.045)
+    latex.SetTextSize(0.038)
     latex.SetTextAlign(31);
-    latex.DrawLatex(0.90, 0.91, data[keyPlot]['plot']['caption'])
+    latex.DrawLatex(0.90, 0.93, data[keyPlot]['plot']['caption'])
     canvasRatio.Update()
 
     # Make directory and save ratio canvas

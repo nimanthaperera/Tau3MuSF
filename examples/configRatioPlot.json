@@ -23,7 +23,8 @@
             "yRatio"            : [0.65, 1.35, "Data/MC"],
             "legend"            : ["Mu50 HLT, p_{T} > 55 GeV", "Data", "MC"],
             "caption"           : "7.6 fb^{-1} (13 TeV, 2016)",
-            "logo"              : ["CMS", "Preliminary"]
+            "logo"              : ["CMS", "Preliminary"],
+            "colorMap"          : [1, 4, 1]
         },
         "output"    :
         {
@@ -57,7 +58,8 @@
             "yRatio"            : [0.65, 1.35, "Label Y lower"],
             "legend"            : ["Legend title", "Legend input 1", "Legend input 2"],
             "caption"           : "Caption text in upper right corner",
-            "logo"              : ["Logo text", "Logo additional text"]
+            "logo"              : ["Logo text", "Logo additional text"],
+            "colorMap"          : [1, 4, 1]
         },
         "output"    :
         {

@@ -64,12 +64,6 @@
                 "variable"          : "pt",
                 "cut"               : "abseta>1.5",
                 "legendEntry"       : "Legend 2"
-            },
-            "eta_cut2"  :
-            {
-                "variable"          : "pt",
-                "cut"               : "abseta>2.0",
-                "legendEntry"       : "Legend 3"
             }
         },
         "plot"      :

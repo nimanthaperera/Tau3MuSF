@@ -86,9 +86,9 @@ for keyPlot in data:
         mg.Add(graph)
 
     # Setup canvas with all elements
-    canvas = TCanvas('canvas', 'canvas', 800, 600)
+    canvas = TCanvas('canvas', 'canvas', 800, 800)
 
-    pad = TPad('pad', 'pad', 0.02, 0.02, 1.0, 0.98)
+    pad = TPad('pad', 'pad', 0.01, 0.00, 1.00, 1.00)
     pad.Draw()
     pad.cd()
 
@@ -110,10 +110,10 @@ for keyPlot in data:
     mg.GetYaxis().SetLabelFont(43)
     mg.GetYaxis().SetTitleSize(22)
     mg.GetYaxis().SetLabelSize(20)
-    mg.GetYaxis().SetTitleOffset(1.2)
+    mg.GetYaxis().SetTitleOffset(1.5)
 
     canvas.cd()
-    leg = TLegend(0.35, 0.72, 0.75, 0.86)
+    leg = TLegend(0.37, 0.76, 0.75, 0.88)
     leg.SetHeader(data[keyPlot]['plot']['legendTitle'])
     header = leg.GetListOfPrimitives().First()
     header.SetTextColor(1)
@@ -131,15 +131,15 @@ for keyPlot in data:
     latex.SetNDC()
     latex.SetTextFont(61)
     latex.SetTextSize(0.06)
-    latex.DrawLatex(0.16, 0.81, data[keyPlot]['plot']['logo'][0])
+    latex.DrawLatex(0.16, 0.82, data[keyPlot]['plot']['logo'][0])
     latex.SetTextFont(52)
     latex.SetTextSize(0.04)
     latex.SetTextAlign(11);
-    latex.DrawLatex(0.16, 0.76, data[keyPlot]['plot']['logo'][1])
+    latex.DrawLatex(0.16, 0.77, data[keyPlot]['plot']['logo'][1])
     latex.SetTextFont(42)
-    latex.SetTextSize(0.045)
+    latex.SetTextSize(0.038)
     latex.SetTextAlign(31);
-    latex.DrawLatex(0.90, 0.90, data[keyPlot]['plot']['caption'])
+    latex.DrawLatex(0.90, 0.91, data[keyPlot]['plot']['caption'])
     canvas.Update()
 
     # Save plot
