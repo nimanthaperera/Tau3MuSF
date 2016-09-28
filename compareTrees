@@ -14,7 +14,7 @@ parser.add_argument("filenameTarget", help="Path to the Tag-And-Probe ROOT file 
 parser.add_argument("filenameReference", help="Path to the Tag-And-Probe ROOT file which serves as reference")
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT files which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables which shall be compared")
-parser.add_argument("-v", "--verbosity", action="count", default=0, help="Increase output verbosity by printing names of branches which do not differ")
+parser.add_argument("-v", "--verbosity", default=0, action="count", help="Increase output verbosity by printing names of branches which do not differ")
 parser.add_argument("-c", "--cut", default=0, help="Branches with a difference below this cut will not be treated as different")
 parser.add_argument("-s", "--singleValue", default=0, action="count", help="Show branches in target and reference which are filled with a single value")
 args = parser.parse_args()
@@ -142,7 +142,7 @@ print('')
 
 print('Branches which do not differ:')
 print('-----------------------------')
-if args.verbosity>1:
+if args.verbosity :
     for branch in branchesSame:
         print(branch['name'])
 else:
