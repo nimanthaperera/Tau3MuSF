@@ -13,7 +13,7 @@ parser.add_argument("filenameOutput", help="Path to the output Tag-And-Probe ROO
 parser.add_argument("-d", "--directory", default="tpTree", help="Directory in the input ROOT file which contains the Tag-And-Probe tree")
 parser.add_argument("-t", "--tree", default="fitter_tree", help="Name of the tree holding the variables")
 parser.add_argument("-c", "--cut", default="", help="Cut string which is used on input tree (applied as CopyTree() argument), e.g., \"pt>30 && abseta<2.4\"")
-parser.add_argument("-r", "--remove", default="", help="List of branches, which are removed from tree, e.g., \"pt eta abseta\" or \"tag_*\"")
+parser.add_argument("-r", "--remove", default="", help="List of branches, which are removed from tree, e.g., \"pt eta abseta\" or \"tag_*\, all removes them all unless something is kept with --keep"")
 parser.add_argument("-k", "--keep", default="", help="List of branches, which are explicitly kept in tree, e.g., \"pt eta abseta\". This option deactivates the 'remove' argument for the specified branches")
 parser.add_argument("-v", "--verbosity", default=1, help="Increase or decrease output verbosity for input/output tree properties")
 args = parser.parse_args()
@@ -44,10 +44,16 @@ if args.verbosity == 1:
     print('')
 
 # Deactivate and reactivate branches from 'remove' and 'keep' arguments
-branchesRemove = args.remove.split(' ')
-if branchesRemove != ['']:
-    for branch in branchesRemove:
-        treeInput.SetBranchStatus(branch, 0)
+if args.remove == 'all':
+    for branch in treeInput.GetListOfBranches():
+        if not branch.GetName() in args.cut:
+            treeInput.SetBranchStatus(branch.GetName(), 0)
+else:
+    branchesRemove = args.remove.split(' ')
+    if branchesRemove != ['']:
+        for branch in branchesRemove:
+            treeInput.SetBranchStatus(branch, 0)
+
 
 branchesKeep = args.keep.split(' ')
 if branchesKeep != ['']:
