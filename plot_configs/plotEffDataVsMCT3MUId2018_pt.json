@@ -1,0 +1,41 @@
+{
+    "T3MUID_2018"   :
+    {
+        "comment"   : "Effiiciency plots for Data and MC with T3MUID",
+        "inputs"    :
+        {
+            "input_2"   :
+            {
+                "label"             : "T3MUID_Data",
+                "legendEntry"       : "T3MUID Data 2018",
+                "filename"          : "EfficiencyMuonT3MUID2018PT/DATA_data_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_pt.root", 
+                "directory"         : "tpTree/MTau3MuCutid_NUM_MTau3MuID_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            },
+            "input_1"   :
+            {
+                "label"             : "T3MUID_MC",
+                "legendEntry"       : "T3MUID MC 2018 weighted",
+                "filename"          : "EfficiencyMuonT3MUID2018PT/MC_mc_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_pt.root",
+                "directory"         : "tpTree/MTau3MuCutid_NUM_MTau3MuID_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [3.0, 40.0, "Pt (GeV)"],
+            "y"                 : [0.0, 1.1, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2018 Data",
+            "logo"              : ["", ""],
+            "colorMap"          : [4, 2],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "Tau3MuIDplots/2018/pt",
+            "filenamePlot"     : "EffVsPt",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

@@ -1,0 +1,23 @@
+cmsenv
+
+#For new id Global&&PF&&(drm1<0.8)
+#cmsRun ciccio_NP_II.py MuonT3MUID2017PT2 mtau3muid gentrack data data_all pt default #MC
+#cmsRun ciccio_NP_II.py MuonT3MUID2017PT2 mtau3muid gentrack mc mc_all pt default #MC
+
+#cmsRun ciccio_NP_II.py MuonT3MUID2017PTE mtau3muid gentrack data data_all pt_eta default #MC
+#cmsRun ciccio_NP_II.py MuonT3MUID2017PTE mtau3muid gentrack mc mc_all pt_eta default #MC
+
+#cmsRun ciccio_NP_II.py MuonT3MUID2017DRM1 mtau3muid gentrack data data_all drm1 default #MC
+#cmsRun ciccio_NP_II.py MuonT3MUID2017DRM1 mtau3muid gentrack mc mc_all drm1 default #MC
+
+#cmsRun ciccio_NP_II.py MuonT3MUID2017DRM1E mtau3muid gentrack data data_all drm1_eta default #MC
+#cmsRun ciccio_NP_II.py MuonT3MUID2017DRM1E mtau3muid gentrack mc mc_all drm1_eta default #MC
+
+#cmsRun ciccio_NP_II.py PFID2018PTE pf gentrack data data_all pt_eta default #DATA
+#cmsRun ciccio_NP_II.py PFID2018PTE pf gentrack mc mc_all pt_eta default #MC
+
+#cmsRun ciccio_NP_II.py Standard2018PTE looseid gentrack data data_all pt_eta default #DATA
+#cmsRun ciccio_NP_II.py Standard2018PTE looseid gentrack mc mc_all pt_eta default #MC
+
+cmsRun ciccio_NP_II.py Global2018PTE glbid gentrack data data_all pt_eta default #DATA
+cmsRun ciccio_NP_II.py Global2018PTE glbid gentrack mc mc_all pt_eta default #MC

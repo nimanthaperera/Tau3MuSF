@@ -1,0 +1,36 @@
+{
+    "example1"   :
+    {
+        "comment"   : "Look at example2 to understand the config parameters.",
+        "input1"    :
+        {
+            "label"             : "RatioData",
+            "filename"          : "EfficiencyStandard/DATA_data_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root",
+            "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta/",
+            "binnedVariable"    : "pt_PLOT_abseta_bin3"
+        },
+        "input2"    :
+        {
+            "label"             : "RatioMC",
+            "filename"          : "EfficiencyStandard/MC_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root",
+            "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta/",
+            "binnedVariable"    : "pt_PLOT_abseta_bin3"
+        },
+        "plot"      :
+        {
+            "x"                 : [2.0, 15.0, "Pt (GeV)"],
+            "yAbsolute"         : [0.80, 1.10, "Efficiency"],
+            "yRatio"            : [0.90, 1.10, "Data/MC"],
+            "legend"            : ["Loose ID         2.1 < |#eta| < 2.4", "Data", "MC"],
+            "caption"           : "2017 Run B(bug fixed)+C+D+E+F (13 TeV)",
+            "logo"              : ["CMS", "Preliminary"],
+            "colorMap"          : [1, 4, 1]
+        },
+        "output"    :
+        {
+            "directory"         : "examplePlots/ratio_1",
+            "filenameRatio"     : "ratioLooseId",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

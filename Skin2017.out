@@ -1,0 +1,85 @@
+Used path to tree in files:
+---------------------------
+tpTree/fitter_tree
+
+Input files:
+------------
+root://eoscms//eos/cms/store/group/phys_muon/TagAndProbe/Run2017/94X/JPsi/RunB/TnPTreeJPsi_17Nov2017_Charmonium_Run2017Bv1_Full_GoldenJSON_BUGFIX.root
+
+Number of entries in tree:
+--------------------------
+Input:  797825
+Output: 124714
+
+Number of branches in tree:
+---------------------------
+Input:  491
+Output: 29
+Used path to tree in files:
+---------------------------
+tpTree/fitter_tree
+
+Input files:
+------------
+root://eoscms//eos/cms/store/group/phys_muon/TagAndProbe/Run2017/94X/JPsi/RunC/TnPTreeJPsi_17Nov2017_Charmonium_Run2017Cv1_Full_GoldenJSON.root
+
+Number of entries in tree:
+--------------------------
+Input:  1386273
+Output: 304075
+
+Number of branches in tree:
+---------------------------
+Input:  491
+Output: 29
+Used path to tree in files:
+---------------------------
+tpTree/fitter_tree
+
+Input files:
+------------
+root://eoscms//eos/cms/store/group/phys_muon/TagAndProbe/Run2017/94X/JPsi/RunD/TnPTreeJPsi_17Nov2017_Charmonium_Run2017Dv1_Full_GoldenJSON.root
+
+Number of entries in tree:
+--------------------------
+Input:  701493
+Output: 126403
+
+Number of branches in tree:
+---------------------------
+Input:  491
+Output: 29
+Used path to tree in files:
+---------------------------
+tpTree/fitter_tree
+
+Input files:
+------------
+root://eoscms//eos/cms/store/group/phys_muon/TagAndProbe/Run2017/94X/JPsi/RunE/TnPTreeJPsi_17Nov2017_Charmonium_Run2017Ev1_Full_GoldenJSON.root
+
+Number of entries in tree:
+--------------------------
+Input:  1134750
+Output: 190211
+
+Number of branches in tree:
+---------------------------
+Input:  491
+Output: 29
+Used path to tree in files:
+---------------------------
+tpTree/fitter_tree
+
+Input files:
+------------
+root://eoscms//eos/cms/store/group/phys_muon/TagAndProbe/Run2017/94X/JPsi/RunF/TnPTreeJPsi_17Nov2017_Charmonium_Run2017Fv1_Full_GoldenJSON.root
+
+Number of entries in tree:
+--------------------------
+Input:  1436319
+Output: 239605
+
+Number of branches in tree:
+---------------------------
+Input:  491
+Output: 29

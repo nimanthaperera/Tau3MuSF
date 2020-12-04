@@ -1,0 +1,41 @@
+{
+    "example2"   :
+    {
+        "comment"   : "This is an copy of the first example with more understandable config parameters.",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "GlbDir Std",
+                "legendEntry"       : "Global Muon Standard",
+                "filename"          : "EfficiencyMinchia/DATA_data_all/TnP_MC_NUM_Staminchiaid_DEN_genTracks_PAR_pt.root",
+                "directory"         : "tpTree/Staminchiaid_NUM_Staminchiaid_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            },
+            "input_2"   :
+            {
+                "label"             : "GlbDir Tau3mu",
+                "legendEntry"       : "Global Muon tau3mu",
+                "filename"          : "EfficiencyGLBid/DATA_data_all/TnP_MC_NUM_Glbid_DEN_genTracks_PAR_pt.root",
+                "directory"         : "tpTree/Glbid_NUM_Glbid_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 40.0, "Pt (GeV)"],
+            "y"                 : [0.90, 1.05, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2017 Data",
+            "logo"              : ["", ""],
+            "colorMap"          : [1, 4],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "plot_test",
+            "filenamePlot"     : "plot",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

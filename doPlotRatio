@@ -1,0 +1,45 @@
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2017_pt_eta_0.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2017_pt_eta_1.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2017_pt_eta_2.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2017_pt_eta_3.json
+
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2018_pt_eta_0.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2018_pt_eta_1.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2018_pt_eta_2.json
+#./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCT3MUId2018_pt_eta_3.json
+
+
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2017_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2017_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2017_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2017_pt_eta_3.json
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2018_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2018_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2018_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCGlbId2018_pt_eta_3.json
+
+
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2017_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2017_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2017_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2017_pt_eta_3.json
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2018_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2018_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2018_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCPFId2018_pt_eta_3.json
+
+
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2017_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2017_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2017_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2017_pt_eta_3.json
+
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2018_pt_eta_0.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2018_pt_eta_1.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2018_pt_eta_2.json
+./makeRatioPlot plot_configs/ratio_plot_configs/plotRatioDataVsMCStandardId2018_pt_eta_3.json

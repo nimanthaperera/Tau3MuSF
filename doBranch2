@@ -1,0 +1,41 @@
+#2017
+#2017 Data
+
+#python addBranch3 JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+numpy.fabs(tag_phi-phi)*numpy.fabs(tag_phi-phi));tag_eta;eta;tag_phi;phi" pair_DeltaR1
+
+#python addBranch3  JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA_II.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+(numpy.fabs(tag_phi-phi)-2*3.1415927)*(numpy.fabs(tag_phi-phi)-2*3.1415927));tag_eta;eta;tag_phi;phi" pair_DeltaR2
+
+#python addBranch3 JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA_II.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA_II_BA.root "numpy.minimum(pair_DeltaR1,pair_DeltaR2);pair_DeltaR1;pair_DeltaR2" pair_DeltaR
+
+#python addBranch3  -i True JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA_II_BA.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_blobstudy_BA_BA.root "Glb*PF*(pair_DeltaR<0.8);Glb;PF;pair_DeltaR" MuonT3MUID
+
+#2017 MC
+#python addBranch3  JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy.root JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+numpy.fabs(tag_phi-phi)*numpy.fabs(tag_phi-phi));tag_eta;eta;tag_phi;phi" pair_DeltaR1
+
+#python addBranch3 JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA.root JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA_II.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+(numpy.fabs(tag_phi-phi)-2*3.1415927)*(numpy.fabs(tag_phi-phi)-2*3.1415927));tag_eta;eta;tag_phi;phi" pair_DeltaR2
+
+#python addBranch3 JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA_II.root JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA_II_BA.root "numpy.minimum(pair_DeltaR1,pair_DeltaR2);pair_DeltaR1;pair_DeltaR2" pair_DeltaR
+
+#python addBranch3  -i True JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA_II_BA.root JPsi_94X_JpsiToMuMu_Pythia8_NP_blobstudy_BA_BA.root "Glb*PF*(pair_DeltaR<0.8);Glb;PF;pair_DeltaR" MuonT3MUID
+
+#2018
+#2018 Data
+
+#python addBranch3 JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+numpy.fabs(tag_phi-phi)*numpy.fabs(tag_phi-phi));tag_eta;eta;tag_phi;phi" pair_DeltaR1
+
+#python addBranch3 JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA_II.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+(numpy.fabs(tag_phi-phi)-2*3.1415927)*(numpy.fabs(tag_phi-phi)-2*3.1415927));tag_eta;eta;tag_phi;phi" pair_DeltaR2
+
+#python addBranch3 JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA_II.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA_II_BA.root "numpy.minimum(pair_DeltaR1,pair_DeltaR2);pair_DeltaR1;pair_DeltaR2" pair_DeltaR
+
+#python addBranch3  -i True JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA_II_BA.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_blobstudy_BA_BA.root "Glb*PF*(pair_DeltaR<0.8);Glb;PF;pair_DeltaR" MuonT3MUID
+
+#2018 MC
+
+python addBranch3 JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+numpy.fabs(tag_phi-phi)*numpy.fabs(tag_phi-phi));tag_eta;eta;tag_phi;phi" pair_DeltaR1
+
+python addBranch3 JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA_II.root "numpy.sqrt((tag_eta-eta)*(tag_eta-eta)+(numpy.fabs(tag_phi-phi)-2*3.1415927)*(numpy.fabs(tag_phi-phi)-2*3.1415927));tag_eta;eta;tag_phi;phi" pair_DeltaR2
+
+python addBranch3 JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA_II.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA_II_BA.root "numpy.minimum(pair_DeltaR1,pair_DeltaR2);pair_DeltaR1;pair_DeltaR2" pair_DeltaR
+
+python addBranch3  -i True JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA_II_BA.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_blobstudy_BA_BA.root "Glb*PF*(pair_DeltaR<0.8);Glb;PF;pair_DeltaR" MuonT3MUID
+

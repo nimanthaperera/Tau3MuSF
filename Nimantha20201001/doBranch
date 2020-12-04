@@ -1,0 +1,16 @@
+python addBranch JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_II.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_II_BA.root "numpy.sqrt((phi-tag_phi)**2+(eta-tag_eta)**2);phi;tag_phi;eta;tag_eta" dR
+
+python addBranch JPsi_94X_JpsiToMuMu_Pythia8_NP_II.root JPsi_94X_JpsiToMuMu_Pythia8_NP_II_BA.root "numpy.sqrt((phi-tag_phi)**2+(eta-tag_eta)**2);phi;tag_phi;eta;tag_eta" dR
+
+python addBranch JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_II.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_II_BA.root "numpy.sqrt((phi-tag_phi)**2+(eta-tag_eta)**2);phi;tag_phi;eta;tag_eta" dR
+
+python addBranch JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_II.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_II_BA.root "numpy.sqrt((phi-tag_phi)**2+(eta-tag_eta)**2);phi;tag_phi;eta;tag_eta" dR
+
+python addBranch2 JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_II_BA.root JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_II_BA_BA.root "Glb*PF*(dR<0.8);Glb;PF;dR" MuonT3MUID
+
+python addBranch2 JPsi_94X_JpsiToMuMu_Pythia8_NP_II_BA.root JPsi_94X_JpsiToMuMu_Pythia8_NP_II_BA_BA.root "Glb*PF*(dR<0.8);Glb;PF;dR" MuonT3MUID
+
+python addBranch2 JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_II_BA.root JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_II_BA_BA.root "Glb*PF*(dR<0.8);Glb;PF;dR" MuonT3MUID
+
+python addBranch2 JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_II_BA.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_II_BA_BA.root "Glb*PF*(dR<0.8);Glb;PF;dR" MuonT3MUID
+

@@ -1,0 +1,41 @@
+{
+    "example2"   :
+    {
+        "comment"   : "This is an copy of the first example with more understandable config parameters.",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "GlbDir Data",
+                "legendEntry"       : "Global Muon Data",
+                "filename"          : "EfficiencyStadard/DATA_data_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_drm1.root",
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_drm1",
+                "binnedVariable"    : "pt"
+            },
+            "input_2"   :
+            {
+                "label"             : "GlbDir T",
+                "legendEntry"       : "Global Muon MC",
+                "filename"          : "EfficiencyStandard/MC_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_drm1.root",
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_drm1",
+                "binnedVariable"    : "pt"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 2.5, "#DeltaR_{M1}"],
+            "y"                 : [0.50, 1.05, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2017 Data",
+            "logo"              : ["", ""],
+            "colorMap"          : [1, 4],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "plot_test",
+            "filenamePlot"     : "plot",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

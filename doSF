@@ -1,0 +1,5 @@
+root -b -q -l 'extractPlotsAndComputeTheSFs.C("MTau3MuID","EfficiencyMuonT3MUID2018PTE/DATA_data_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_pt_eta.root","EfficiencyMuonT3MUID2017PTE/MC_mc_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_pt_eta.root")'
+
+python createJsonFile_CommonFormat.py EfficienciesAndSF_MTau3MuCutid_NUM_MTau3MuID_DEN_genTracks_PAR_pt_eta.root SFTau3Mu2017.json
+
+

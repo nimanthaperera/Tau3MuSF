@@ -1,0 +1,41 @@
+{
+    "CompareWeigths"   :
+    {
+        "comment"   : "Compare looseId eff for J/psi MC no weigth Vs weigth.",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "JPsiNoWeight",
+                "legendEntry"       : "Loose Id J/Psi No weigth",
+                "filename"          : "EfficiencyStandard/MCNoWei_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt.root", 
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            },
+            "input_2"   :
+            {
+                "label"             : "JPsiWeight",
+                "legendEntry"       : "Loose Id J/Psi NVertices Weigthed",
+                "filename"          : "EfficiencyStandard/MC_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt.root",
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt",
+                "binnedVariable"    : "pt"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 40.0, "Pt (GeV)"],
+            "y"                 : [0.90, 1.05, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2017 MC",
+            "logo"              : ["", ""],
+            "colorMap"          : [1, 4],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "plot_test",
+            "filenamePlot"     : "LooseIdWeights",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "TrackerMuonID_2018"   :
+    {
+        "comment"   : "Efficiency plots for Data and MC with TMId",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "TrackerMuonID Data",
+                "legendEntry"       : "TrackerMuonID Data 2018",
+                "filename"          : "EfficiencyNIM_TrackMuon_barrel/DATA_data_all/TnP_MC_NUM_TrackerMuons_DEN_genTracks_PAR_DeltaR.root", 
+                "directory"         : "tpTree/TMCut_NUM_TrackerMuons_DEN_genTracks_PAR_DeltaR",
+                "binnedVariable"    : "pair_DeltaR"
+            },
+            "input_2"   :
+            {
+                "label"             : "TrackerMuonID MC",
+                "legendEntry"       : "TrackerMuonID MC 2018 weighted",
+                "filename"          : "EfficiencyNIM_TrackMuon_barrel/MC_mc_all/TnP_MC_NUM_TrackerMuons_DEN_genTracks_PAR_DeltaR.root",
+                "directory"         : "tpTree/TMCut_NUM_TrackerMuons_DEN_genTracks_PAR_DeltaR",
+                "binnedVariable"    : "pair_DeltaR"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 0.9, "#DeltaR"],
+            "y"                 : [0.0, 1.3, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2018 Data (0<eta<0.9)",
+            "logo"              : ["", ""],
+            "colorMap"          : [1, 4],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "TMIDplots/2018",
+            "filenamePlot"     : "EffVsdr_Barrel",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

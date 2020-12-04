@@ -1,0 +1,17 @@
+./makeEffPlot plotEffDataVsMCT3MUId2017_pt.json
+./makeEffPlot plotEffDataVsMCT3MUId2017_pt_eta_0.json 
+./makeEffPlot plotEffDataVsMCT3MUId2017_pt_eta_1.json
+./makeEffPlot plotEffDataVsMCT3MUId2017_pt_eta_2.json
+./makeEffPlot plotEffDataVsMCT3MUId2017_drm1.json 
+./makeEffPlot plotEffDataVsMCT3MUId2017_drm1_eta_0.json
+./makeEffPlot plotEffDataVsMCT3MUId2017_drm1_eta_1.json
+./makeEffPlot plotEffDataVsMCT3MUId2017_drm1_eta_2.json
+
+./makeEffPlot plotEffDataVsMCT3MUId2018_pt.json
+./makeEffPlot plotEffDataVsMCT3MUId2018_pt_eta_0.json 
+./makeEffPlot plotEffDataVsMCT3MUId2018_pt_eta_1.json
+./makeEffPlot plotEffDataVsMCT3MUId2018_pt_eta_2.json
+./makeEffPlot plotEffDataVsMCT3MUId2018_drm1.json 
+./makeEffPlot plotEffDataVsMCT3MUId2018_drm1_eta_0.json
+./makeEffPlot plotEffDataVsMCT3MUId2018_drm1_eta_1.json
+./makeEffPlot plotEffDataVsMCT3MUId2018_drm1_eta_2.json

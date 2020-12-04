@@ -1,0 +1,41 @@
+{
+    "Glbid_2017"   :
+    {
+        "comment"   : "Efficiency plots for Data and MC with Glbid",
+        "inputs"    :
+        {
+            "input_2"   :
+            {
+                "label"             : "Glbid_Data",
+                "legendEntry"       : "Glbid Data 2017",
+                "filename"          : "EfficiencyGlobal2017PTE/DATA_data_all/TnP_MC_NUM_Glbid_DEN_genTracks_PAR_pt_eta.root", 
+                "directory"         : "tpTree/Glbid_NUM_Glbid_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin3"
+            },
+            "input_1"   :
+            {
+                "label"             : "Glbid_MC",
+                "legendEntry"       : "Glbid MC 2017 weighted",
+                "filename"          : "EfficiencyGlobal2017PTE/MC_mc_all/TnP_MC_NUM_Glbid_DEN_genTracks_PAR_pt_eta.root",
+                "directory"         : "tpTree/Glbid_NUM_Glbid_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin3"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [3.0, 40.0, "Pt (GeV)"],
+            "y"                 : [-0.1, 1.4, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2017 Data (2.1<eta<2.4)",
+            "logo"              : ["", ""],
+            "colorMap"          : [4, 2],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "Glbidplots/2017/pt_eta_2p1_to_2p4",
+            "filenamePlot"     : "EffVspt_eta_2p1_to_2p4",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

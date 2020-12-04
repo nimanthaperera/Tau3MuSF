@@ -114,7 +114,7 @@ treeOutput = chainMC.CloneTree(0)
 weight = array('f', [1.0])
 treeOutput.Branch('weight', weight, 'weight/F')
 numEvents = chainMC.GetEntries()
-
+print "NUmber of events in MC",numEvents
 for i in range(numEvents):
     chainMC.GetEntry(i)
     weight[0] = weights[int(getattr(chainMC, args.branch))] # NOTE we need this struct because otherwise PyROOT somehow drops objects...

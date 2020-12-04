@@ -1,0 +1,41 @@
+{
+    "LooseID_2017"   :
+    {
+        "comment"   : "Efficiency plots for Data and MC with looseid",
+        "inputs"    :
+        {
+            "input_1"   :
+            {
+                "label"             : "LooseId_Data",
+                "legendEntry"       : "LooseId Data 2017",
+                "filename"          : "drm1l0.8/EfficiencyStandardNP3/DATA_data_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root", 
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin2"
+            },
+            "input_2"   :
+            {
+                "label"             : "LooseId_MC",
+                "legendEntry"       : "LooseId MC 2017 weighted",
+                "filename"          : "drm1l0.8/EfficiencyStandardNP3/MC_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root",
+                "directory"         : "tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin2"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 40.0, "Pt (GeV)"],
+            "y"                 : [0.95, 1.01, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2017 Data",
+            "logo"              : ["", ""],
+            "colorMap"          : [1, 4],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "drm1l0.8/plot_looseid/bin2",
+            "filenamePlot"     : "plot_zoomed",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

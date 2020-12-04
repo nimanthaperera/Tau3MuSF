@@ -1,0 +1,41 @@
+{
+    "PfID_2018"   :
+    {
+        "comment"   : "Efficiency plots for Data and MC with PfID",
+        "inputs"    :
+        {
+            "input_2"   :
+            {
+                "label"             : "PfId_Data",
+                "legendEntry"       : "PfId Data 2018",
+                "filename"          : "EfficiencyPFID2018PTE/DATA_data_all/TnP_MC_NUM_PfID_DEN_genTracks_PAR_pt_eta.root", 
+                "directory"         : "tpTree/PfCutid_NUM_PfID_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin1"
+            },
+            "input_1"   :
+            {
+                "label"             : "PfId_MC",
+                "legendEntry"       : "PfId MC 2018 weighted",
+                "filename"          : "EfficiencyPFID2018PTE/MC_mc_all/TnP_MC_NUM_PfID_DEN_genTracks_PAR_pt_eta.root",
+                "directory"         : "tpTree/PfCutid_NUM_PfID_DEN_genTracks_PAR_pt_eta",
+                "binnedVariable"    : "pt_PLOT_abseta_bin1"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [3.0, 40.0, "Pt (GeV)"],
+            "y"                 : [-0.1, 1.4, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2018 Data (0.9<eta<1.2)",
+            "logo"              : ["", ""],
+            "colorMap"          : [4, 2],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "PfIDplots/2018/pt_eta_0p9_to_1p2",
+            "filenamePlot"     : "EffVspt_eta_0p9_to_1p2",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

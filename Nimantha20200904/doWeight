@@ -1,0 +1,14 @@
+
+#./addNVtxWeight JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_MMAll.root JPsi_94X_JpsiToMuMu_Pythia8_MM.root JPsi_94X_JpsiToMuMu_Pythia8_MMWeighted.root --histogramRange "200,-0.5,199.5"
+
+#./addNVtxWeight pippo.root JPsi_94X_JpsiToMuMu_Pythia8_MM_standard.root pippoMC.root --histogramRange "200,-0.5,199.5"
+
+############################# Nimantha #############################################################
+
+#./addNVtxWeight JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_3.root JPsi_94X_JpsiToMuMu_Pythia8_NP_3.root weightedNP_3.root --histogramRange "200,-0.5,199.5"
+
+#2017
+./addNVtxWeight JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_NPALL_II_BA_II.root JPsi_94X_JpsiToMuMu_Pythia8_NP_II_BA_II.root weightedNP_2017_Charmonium_II_II.root --histogramRange "200,-0.5,199.5"
+
+#2018
+./addNVtxWeight JPsi_17Sep2018_Charmonium_Run2018_Full_GoldenJSON_NPALL_II_BA_II.root JPsi_102XAutumn18_JpsiToMuMu_JpsiPt8_Pythia8_NP_II_BA_II.root weightedNP_2018_Charmonium_II_II.root --histogramRange "200,-0.5,199.5"

@@ -1,0 +1,41 @@
+{
+    "T3MUID_2018"   :
+    {
+        "comment"   : "Efficiency plots for Data and MC with T3Muid",
+        "inputs"    :
+        {
+            "input_2"   :
+            {
+                "label"             : "T3MUID_Data",
+                "legendEntry"       : "T3MUID Data 2018",
+                "filename"          : "EfficiencyMuonT3MUID2018DRM1E/DATA_data_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_drm1_eta.root", 
+                "directory"         : "tpTree/MTau3MuCutid_NUM_MTau3MuID_DEN_genTracks_PAR_drm1_eta",
+                "binnedVariable"    : "pair_drM1_PLOT_abseta_bin2"
+            },
+            "input_1"   :
+            {
+                "label"             : "T3MUID_MC",
+                "legendEntry"       : "T3MUID MC 2018 weighted",
+                "filename"          : "EfficiencyMuonT3MUID2018DRM1E/MC_mc_all/TnP_MC_NUM_MTau3MuID_DEN_genTracks_PAR_drm1_eta.root",
+                "directory"         : "tpTree/MTau3MuCutid_NUM_MTau3MuID_DEN_genTracks_PAR_drm1_eta",
+                "binnedVariable"    : "pair_drM1_PLOT_abseta_bin2"
+            }
+        },
+        "plot"      :
+        {
+            "x"                 : [0.0, 0.9, "#DeltaR_{M1}"],
+            "y"                 : [0.0, 1.3, "Efficiency"],
+            "legendTitle"       : "",
+            "caption"           : "2018 Data (1.2<eta<2.4)",
+            "logo"              : ["", ""],
+            "colorMap"          : [4, 2],
+            "markerMap"         : [20, 21]
+        },
+        "output"    :
+        {
+            "directory"         : "Tau3MuIDplots/2018/drm1_eta_1p2_to_2p4",
+            "filenamePlot"     : "EffVsdrm1_eta_1p2_to_2p4",
+            "fileType"          : ["png", "pdf"]
+        }
+    }
+}

@@ -1,0 +1,94 @@
+cmsenv
+###############Marcello
+# # Run the loose id on 2017 data
+#cmsRun ciccio.py Standard looseid gentrack data data_all pt_eta default
+
+# # Run the GlobalMuon on 2017 data
+#cmsRun ciccio.py GLBid glbid gentrack data data_all pt_eta default
+
+# # Run the loose id on 2017 MC
+#cmsRun ciccio.py Standard looseid gentrack mc mc_all pt_eta default
+
+# # Run the GlobalMuon on 2017 MC
+#cmsRun ciccio.py GLBid glbid gentrack mc mc_all pt_eta default
+
+###################Nimantha
+
+# # Run the loose id on 2017 data
+#cmsRun ciccio.py StandardNP looseid gentrack data data_all pt default
+
+# # Run the loose id on 2017 MC
+#cmsRun ciccio.py StandardNP looseid gentrack mc mc_all pt default
+
+# Run the loose id on 2017 MC weighted
+#cmsRun ciccio.py StandardNPW looseid gentrack mc mc_all pt default 
+
+###pt_eta
+
+# # Run the loose id on 2017 data
+#cmsRun ciccio.py StandardNPpe looseid gentrack data data_all pt_eta default
+ 
+# # Run the loose id on 2017 MC
+#cmsRun ciccio.py StandardNPpe looseid gentrack mc mc_all pt_eta default
+
+# Run the loose id on 2017 MC weighted
+#cmsRun ciccio.py StandardNPpeW looseid gentrack mc mc_all pt_eta default
+
+######
+
+#For PF id
+#Run the PF id on 2017 data
+#cmsRun ciccio_NP.py PFNP pf gentrack data data_all pt default
+#cmsRun ciccio_NP.py PFNPpe pf gentrack data data_all pt_eta default #pt_eta
+
+#Run the PF id on 2017 weighted MC
+#cmsRun ciccio_NP.py PFNP pf gentrack mc mc_all pt default
+#cmsRun ciccio_NP.py PFNPpe pf gentrack mc mc_all pt_eta default #pt_eta
+
+#Taking drm1 for PF id
+#Run for 2017 data
+#cmsRun ciccio_NP.py PFDRMNP pf gentrack data data_all drm1 default
+#cmsRun ciccio_NP.py PFDRMNPe pf gentrack data data_all drm1_eta default
+
+#Run for 2017 data
+#cmsRun ciccio_NP.py PFDRMNP pf gentrack mc mc_all drm1 default
+#cmsRun ciccio_NP.py PFDRMNPe pf gentrack mc mc_all drm1_eta default
+
+###############################
+#For drm1<0.8 (2017)
+
+#Run for loose id
+#cmsRun ciccio.py StandardNP3 looseid gentrack data data_all pt_eta default #data
+#cmsRun ciccio.py StandardNP3 looseid gentrack mc mc_all pt_eta default #MC
+
+
+#Run for global id
+#cmsRun ciccio.py GLBidNP3 glbid gentrack data data_all pt_eta default #data
+#cmsRun ciccio.py GLBidNP3 glbid gentrack mc mc_all pt_eta default #MC
+
+
+#Run for pf id
+#cmsRun ciccio_NP.py PFNP3 pf gentrack data data_all pt_eta default #data
+#cmsRun ciccio_NP.py PFNP3 pf gentrack mc mc_all pt_eta default #MC
+
+#############################################################################################
+#2018 drm1<0.5
+#Run for looseid
+#cmsRun ciccio.py Standard2018 looseid gentrack data data_all pt_eta default #data
+#cmsRun ciccio.py Standard2018 looseid gentrack mc mc_all pt_eta default #MC
+
+#cmsRun ciccio.py Standard2018DRM1 looseid gentrack data data_all drm1 default #data
+#cmsRun ciccio.py Standard2018DRM1 looseid gentrack mc mc_all drm1 default #MC
+
+#cmsRun ciccio.py Standard2018DRM1E looseid gentrack data data_all drm1_eta default #data
+#cmsRun ciccio.py Standard2018DRM1E looseid gentrack mc mc_all drm1_eta default #MC
+
+#cmsRun ciccio.py Standard2018PT looseid gentrack data data_all pt default #data
+#cmsRun ciccio.py Standard2018PT looseid gentrack mc mc_all pt default #MC
+
+cmsRun ciccio.py Standard2018PTECDRM1 looseid gentrack data data_all pt_eta default #MC
+cmsRun ciccio.py Standard2018PTECDRM1 looseid gentrack mc mc_all pt_eta default #MC
+
+
+
+

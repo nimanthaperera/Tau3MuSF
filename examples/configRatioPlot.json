@@ -28,7 +28,7 @@
         },
         "output"    :
         {
-            "directory"         : "examplePlots/ratio_1",
+            "directory"         : "examplePlots/ratio_1me",
             "filenameRatio"     : "ratio",
             "fileType"          : ["png", "pdf"]
         }
@@ -63,7 +63,7 @@
         },
         "output"    :
         {
-            "directory"         : "examplePlots/ratio_2",
+            "directory"         : "examplePlots/ratio_2me",
             "filenameRatio"     : "ratio",
             "fileType"          : ["pdf", "png"]
         }

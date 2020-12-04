@@ -1,0 +1,12 @@
+# ./makeEffPlot plotEffDataVsMCPFId2018_pt_eta_0.json 
+# ./makeEffPlot plotEffDataVsMCPFId2018_pt_eta_1.json
+# ./makeEffPlot plotEffDataVsMCPFId2018_pt_eta_2.json
+
+#./makeEffPlot plotEffDataVsMCStandardId2018_pt_eta_0.json  
+#./makeEffPlot plotEffDataVsMCStandardId2018_pt_eta_1.json
+#./makeEffPlot plotEffDataVsMCStandardId2018_pt_eta_2.json
+
+./makeEffPlot plotEffDataVsMCGlbId2018_pt_eta_0.json
+./makeEffPlot plotEffDataVsMCGlbId2018_pt_eta_1.json
+./makeEffPlot plotEffDataVsMCGlbId2018_pt_eta_2.json
+

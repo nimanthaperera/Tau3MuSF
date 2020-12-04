@@ -1,0 +1,89 @@
+input tree= EfficienciesAndSF_LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root
+output json= LooseIdSF.json
+debug key  Loose_PtEtaBins
+subkey name in efficienciesDATA
+subsubkey name in abseta_PLOT_pt_bin0_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin1_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin2_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin3_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin4_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin5_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin6_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin7_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin8_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin9_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin10_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin11_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin12_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin13_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin14_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_PLOT_pt_bin15_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in abseta_pt_DATA
+subkey DATA <ROOT.MethodProxy object at 0x7fa61f9b0e10>
+histoName abseta_pt_PLOT
+debug subsubkey  
+subsubkey name in pt_PLOT_abseta_bin0_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in pt_PLOT_abseta_bin1_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in pt_PLOT_abseta_bin2_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in pt_PLOT_abseta_bin3_DATA
+debug subsubkey  Efficiency of LooseCutid::above
+subsubkey name in pt_abseta_DATA
+debug subsubkey  
+debug subkey  efficienciesDATA
+subkey name in efficienciesMC
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+histoName histo2D_MC
+debug subsubkey  
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  Efficiency of LooseCutid::above
+debug subsubkey  
+debug subkey  efficienciesMC
+subkey name in abseta_pt_ratio
+histoName abseta_pt_ratio
+debug subkey  
+subkey name in pt_abseta_ratio
+debug subkey  
+oh yeah
+yeah baby
+eff is DATA
+outputJson_eff is LooseIdSF_DATA.json
+eff is MC
+outputJson_eff is LooseIdSF_MC.json
+eff is SF
+outputJson_eff is LooseIdSF_SF.json

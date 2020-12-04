@@ -1,0 +1,159 @@
+{
+  TCanvas *c1_n1 = new TCanvas("T&P", "T&P",0,22,600,400);
+  gStyle->SetOptStat(0);
+  c1_n1->SetFillColor(0);
+  c1_n1->SetBorderMode(0);
+  c1_n1->SetBorderSize(2);
+  //c1_n1->SetLogy();
+  c1_n1->SetFrameBorderMode(0);
+  c1_n1->SetFrameLineWidth(2);
+  c1_n1->SetFrameBorderMode(0);
+
+  TH1F* den_pt = new TH1F("denominator"," ",25,0.,2.5);
+  TH1F* glb_pt = new TH1F("glb","numerator",25,0.,2.5);
+  TH1F* loo_pt = new TH1F("loose","numerator",25,0.,2.5);
+  TH1F* pf__pt = new TH1F("pf","numerator",25,0.,2.5);
+
+  //  TFile* file = new TFile("JPsi_17Nov2017_Charmonium_Run2017v1_Full_GoldenJSON_MMAll.root");
+  TFile* file = new TFile("JPsi_94X_JpsiToMuMu_Pythia8_MM.root");
+  TChain* tree = (TChain*) file->Get("tpTree/fitter_tree");
+  float mass,eta,pt,dr;
+  int glb,loose,pf;
+  tree->SetBranchAddress("mass",&mass);
+  tree->SetBranchAddress("eta",&eta);
+  tree->SetBranchAddress("pt",&pt);
+  tree->SetBranchAddress("Glb",&glb);
+  tree->SetBranchAddress("Loose",&loose);
+  tree->SetBranchAddress("PF",&pf);
+  tree->SetBranchAddress("pair_drM1",&dr);
+
+  
+  Long64_t ne = tree->GetEntries();
+  std::cout <<" Number of entries in the tree " <<ne<<std::endl;
+  for(int p=0; p<ne ;p++){
+    //Looking at the HLT
+ 
+    tree->GetEntry(p);
+    //if (Mu7p5_Track2_Jpsi_TK==1){
+    //np++;
+    //    mass_n->Fill(mass);
+    // eta_n->Fill(eta);
+    den_pt->Fill(dr);
+    if ( glb > 0.5)
+      glb_pt->Fill(dr);
+    if ( loose > 0.5)
+      loo_pt->Fill(dr);
+    if ( pf > 0.5)
+      pf__pt->Fill(dr);
+
+ 
+  }
+
+  den_pt->SetLineWidth(2);
+  den_pt->GetXaxis()->SetTitle("Angular separation on the first muon station");
+  den_pt->GetYaxis()->SetTitle("Number of muons/0.01");
+  den_pt->SetLineColor(kBlue);
+  den_pt->SetMaximum(220000);
+  den_pt->Draw();
+  glb_pt->SetLineWidth(2);
+  glb_pt->SetLineColor(kRed);
+  glb_pt->Draw("SAME");
+  loo_pt->SetLineWidth(2);
+  loo_pt->SetLineColor(kGreen);
+  loo_pt->Draw("SAME");
+  pf__pt->SetLineWidth(2);
+  pf__pt->SetLineColor(kBlack);
+  TLine* pr1 = new TLine(1.5,175000,1.7,175000);
+  TLine* pr2 = new TLine(1.5,165000,1.5,175000);
+  TLine* pr3 = new TLine(1.7,165000,1.7,175000);
+  TLine* gl1 = new TLine(1.5,155000,1.7,155000);
+  TLine* gl2 = new TLine(1.5,145000,1.5,155000);
+  TLine* gl3 = new TLine(1.7,145000,1.7,155000);
+  TLine* lo1 = new TLine(1.5,135000,1.7,135000);
+  TLine* lo2 = new TLine(1.5,125000,1.5,135000);
+  TLine* lo3 = new TLine(1.7,125000,1.7,135000);
+  pr1->SetLineWidth(2);
+  pr1->SetLineColor(kBlue);
+  pr1->Draw();
+  pr2->SetLineWidth(2);
+  pr2->SetLineColor(kBlue);
+  pr2->Draw();
+  pr3->SetLineWidth(2);
+  pr3->SetLineColor(kBlue);
+  pr3->Draw();
+  gl1->SetLineWidth(2);
+  gl1->SetLineColor(kRed);
+  gl1->Draw();
+  gl2->SetLineWidth(2);
+  gl2->SetLineColor(kRed);
+  gl2->Draw();
+  gl3->SetLineWidth(2);
+  gl3->SetLineColor(kRed);
+  gl3->Draw();
+  lo1->SetLineWidth(2);
+  lo1->SetLineColor(kGreen);
+  lo1->Draw();
+  lo2->SetLineWidth(2);
+  lo2->SetLineColor(kGreen);
+  lo2->Draw();
+  lo3->SetLineWidth(2);
+  lo3->SetLineColor(kGreen);
+  lo3->Draw();
+
+  TLatex tl1;
+  tl1.SetTextAlign(11);
+  tl1.DrawLatex(1.5,185000,"J/#psi Tag & Probe");
+  tl1.DrawText(1.75,165000,"Muon on probes");
+  tl1.DrawText(1.75,145000,"Global Muon");
+  tl1.DrawText(1.75,125000,"LooseId Muon");
+
+  //  pf__pt->Draw("SAME");
+  TCanvas *c1_n2 = new TCanvas("T&P Efficiency", "T&P Efficiency",600,22,600,400);
+  //  gStyle->SetOptStat(0);
+  c1_n2->SetFillColor(0);
+  c1_n2->SetBorderMode(0);
+  c1_n2->SetBorderSize(2);
+  //c1_n2->SetLogy();
+  c1_n2->SetFrameBorderMode(0);
+  c1_n2->SetFrameLineWidth(2);
+  c1_n2->SetFrameBorderMode(0);
+
+  TH1F* pippo = (TH1F*) den_pt->Clone();
+  pippo->GetYaxis()->SetTitle("Efficiency");
+  TEfficiency* gl_eff = new TEfficiency(*glb_pt,*pippo);
+  gl_eff->SetLineColor(kRed);
+  gl_eff->Draw();
+  TEfficiency* lo_eff = new TEfficiency(*loo_pt,*pippo);
+  lo_eff->SetLineColor(kGreen);
+  lo_eff->Draw("SAME");
+  TLine *eg1 = new TLine(0.5,0.50,0.7,0.5);
+  TLine *eg2 = new TLine(0.5,0.45,0.5,0.5);
+  TLine *eg3 = new TLine(0.7,0.45,0.7,0.5);
+  eg1->SetLineColor(kRed);
+  eg1->SetLineWidth(2);
+  eg1->Draw();
+  eg2->SetLineColor(kRed);
+  eg2->SetLineWidth(2);
+  eg2->Draw();
+  eg3->SetLineColor(kRed);
+  eg3->SetLineWidth(2);
+  eg3->Draw();
+  TLine *el1 = new TLine(0.5,0.40,0.7,0.4);
+  TLine *el2 = new TLine(0.5,0.35,0.5,0.4);
+  TLine *el3 = new TLine(0.7,0.35,0.7,0.4);
+  el1->SetLineColor(kGreen);
+  el1->SetLineWidth(2);
+  el1->Draw();
+  el2->SetLineColor(kGreen);
+  el2->SetLineWidth(2);
+  el2->Draw();
+  el3->SetLineColor(kGreen);
+  el3->SetLineWidth(2);
+  el3->Draw();
+  TLatex tl2;
+  tl2.SetTextAlign(11);
+  tl2.DrawLatex(0.5,0.55,"J/#psi\ Tag & Probe");
+  tl2.DrawText(0.75,0.45,"Global Muon");
+  tl2.DrawText(0.75,0.35,"LooseId Muon");
+
+}

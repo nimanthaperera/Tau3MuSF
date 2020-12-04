@@ -1,0 +1,20 @@
+Processing plot config: LooseID_2017
+Config comment: Efficiency plots for Data and MC with looseid
+ciccio
+[u'tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta/fit_eff_plots', u'tpTree/LooseCutid_NUM_LooseID_DEN_genTracks_PAR_pt_eta/fit_eff_plots']
+
+[1mRooFit v3.60 -- Developed by Wouter Verkerke and David Kirkby[0m 
+                Copyright (C) 2000-2013 NIKHEF, University of California & Stanford University
+                All rights reserved, please read http://roofit.sourceforge.net/license.txt
+
+[INFO] File : EfficiencyStandard/MC_mc_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root
+Plotname 'LooseId MC': pt_PLOT_abseta_bin0
+Load plot 'LooseId MC': pt_PLOT_abseta_bin0
+[INFO] File : EfficiencyStandard/DATA_data_all/TnP_MC_NUM_LooseID_DEN_genTracks_PAR_pt_eta.root
+Plotname 'LooseId Data': pt_PLOT_abseta_bin0
+Load plot 'LooseId Data': pt_PLOT_abseta_bin0
+Using colormap: [1, 4]
+Using markermap: [20, 21]
+Output directory: plot_test
+Output directories for fit canvases: [u'LooseId MC', u'LooseId Data']
+
